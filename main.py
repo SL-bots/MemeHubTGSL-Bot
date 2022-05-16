@@ -113,7 +113,7 @@ async def pm_media(bot, message):
     await message.forward(-1001759991131)
     await bot.send_message(
         chat_id=-1001759991131,
-        text=f"**Msg from:</b> {reference_id} **\n**Name:</b> {message.from_user.mention}**\n\n@admin"
+        text=f"**Msg from:</b> {reference_id} **\n**Name:</b> [{message.from_user.first_name}](tg://user?id={message.from_user.id})**\n\n@admin"
     )
     reply_markup = BACK_BUTTONS
     text = "Ur Photo Sent To [MemeHub Telegram 🇱🇰](https://t.me/memehubTGSL)"
