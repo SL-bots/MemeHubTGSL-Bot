@@ -7,7 +7,7 @@ from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, Peer
 #Client
 Client = Client(
     "Memehub Bot",
-    bot_token= "5296191773:AAHHzxKYtc8Ey50f0QdZcRdtLx4sDaAUynU",
+    bot_token= "5347727010:AAFfGwumkROYWgwkgL1FYcfmjeiZG1M_KT4",
     api_id= 8838171,
     api_hash= "0587408d4f7d9301f5295840b0f3b494",
 )
@@ -49,7 +49,7 @@ PM_TXT_ATT = "<b>Message from:</b> {}\n<b>Name:</b> {}\n\n{}"
 PM_MED_ATT = "<b>Photo from:</b> {} \n<b>Name:</b> {}"
 
 
-@Client.on_message(filters.command("start"))
+@Client.on_message(filters.command(["start", "start@MemeHubTgSl_Bot"]))
 async def startprivate(bot, message):
     USER = InlineKeyboardMarkup([[              
                  InlineKeyboardButton('USER', url=f"https://t.me/{message.from_user.username}")
@@ -68,6 +68,14 @@ async def startprivate(bot, message):
         disable_web_page_preview=True,
         quote=True
     )
+
+@Client.on_message(filters.command(["help", "help@MemeHubTgSl_Bot"]))
+async def startprivate(bot, message):
+    await message.reply_text(
+        text=HELP_STRING,
+        reply_markup=CLOSE_BUTTON,
+        disable_web_page_preview=True
+         )
 
 @Client.on_message(filters.private & filters.text)
 async def pm_text(bot, message):
@@ -105,7 +113,7 @@ async def pm_media(bot, message):
     await message.forward(-1001759991131)
     await bot.send_message(
         chat_id=-1001759991131,
-        text=f"@admin Poddak Meka balamna\n\n**Photo from:</b> {reference_id} **\n**Name:</b> {message.from_user.mention}**"
+        text=f"**Msg from:</b> {reference_id} **\n**Name:</b> {message.from_user.mention}\n\n{message.text}**\n\n@admin"
     )
     reply_markup = BACK_BUTTONS
     text = "Ur Photo Sent To [MemeHub Telegram 🇱🇰](https://t.me/memehubTGSL)"
@@ -167,8 +175,10 @@ async def tgm(bot, update):
          )
          await update.answer(
              text="👻 ʜᴇᴍʟᴘ 👻",
-         )    
-          
+         )
+    elif update.data == "cloc":
+         await update.message.delete()
+         
 @Client.on_message(filters.user(1884885842) & filters.sticker)
 async def replay_media(bot, message):
     reference_id = True
