@@ -1,0 +1,31 @@
+{
+    "name": "Memehub Bot",
+    "description": "Multi Function Pm Bot",
+    "keywords": [
+        "pyrohram",
+        "pyro",
+        "telegram",
+        "telebot"
+    ],
+    "repository": "https://github.com/Gishankrishka2/MultiPm",
+    "website": "https://github.com/Gishankrishka2/MultiPm",
+    "success_url": "https://github.com/Gishankrishka2/MultiPm",
+    "env": {
+        "BOT_TOKEN": {
+            "description": "",
+            "required": "True"
+        }
+    },
+    "stack": "heroku-20",
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        }
+    ],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }
+}
