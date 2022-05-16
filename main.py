@@ -60,7 +60,7 @@ async def startprivate(bot, message):
     await bot.send_message(-1001759991131, text=USER_DETAILS, reply_markup=USER)
     file_id = "CAADBQADVwYAAhCWAVRcksqpPVEWHAI"
     await bot.send_sticker(message.chat.id, file_id)
-    text = f"Hi {message.from_user.mention}, Welcome to  MemeHub Telegram 🇱🇰 Official Bot\n\nDevs\n\n[◤ᴵᴬᴹǤΐรhaή ᴷʳⁱˢʰᵏᵃ◢ 『🇱🇰』](https://t.me/Imgishan)\n[unknown boy┊𝙰𝙻𝙿𝙷𝙰 么 ™](t.me/UnknownB_o_y)"
+    text = f"Hi {message.from_user.mention}, Welcome to  MemeHub Telegram 🇱🇰 Official Bot\n\n★彡 ʙᴏᴛ ʙʏ 彡★\n[◤ᴵᴬᴹǤΐรhaή ᴷʳⁱˢʰᵏᵃ◢ 『🇱🇰』](https://t.me/Imgishan)\n[unknown boy┊𝙰𝙻𝙿𝙷𝙰 么 ™](t.me/UnknownB_o_y)"
     reply_markup = START_BUTTON  
     await message.reply_text(
         text=text,
