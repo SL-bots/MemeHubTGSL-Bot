@@ -57,7 +57,7 @@ CLOSE_BUTTON = InlineKeyboardMarkup([[
                  ]]
                  )
 
-FORCESUB_TEXT = "**❌ Access Denied ❌**\n\n🌷Memehub eke nathuva Mokatada yako Botva Start Kare 😒😒\n♻️Join Try Again.♻️"
+FORCESUB_TEXT = "**❌ Access Denied ❌**\n\nMemehub eke nathuva Mokatada yako Botva Start Kare kkk😒😒\n♻️Join and Try Again.♻️"
                   
 WELCOME_TEXT = "Hello.. <b>{}</b>\n<code>Type your query here..\nI'll respond to your query as earliest</code> 😉\n\nуσυ ωαииα тσ киσω αвσυт мє😌? яєα∂ вєℓσω\n\nαвσυт @Gishankrishka:-\n •му иαмє:- Gishan Krishka \n •му αgє:- υикиσωи🌝\n •¢σмρυтєя ℓαиgυαgє:- ωєв ∂єνєℓσρмєит(ℓєαяиιиg), ρутнσи мσяє ѕσσи😁\n•¢нє¢к [About ༒❣️☢️╣IrØή❂mคŇ╠☢️❣️༒](https://t.me/Gishankrishka_Info_bot) fσя мσяє\n\nPlz Don't Send Stickers 🥲\nReason :- [This](https://t.me/ultchat/19589)"
 USER_DETAILS = "<b>FROM:</b>\nName: {} {}\nId: {}\nUname: @{}\nScam: {}\nRestricted: {}\nStatus: {}\nDc Id: {}"
@@ -81,7 +81,7 @@ async def startprivate(bot, message):
                 await message.reply_text("Yourt Banned")
                 return 
         except UserNotParticipant:
-            file_id = "CAADBQADVwYAAhCWAVRcksqpPVEWHAI"
+            file_id = "CAADBQADOAcAAn_zKVSDCLfrLpxnhAI"
             await bot.send_sticker(message.chat.id, file_id)
             text = FORCESUB_TEXT
             reply_markup = FORCESUB_BUTTONS
