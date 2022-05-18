@@ -1,5 +1,7 @@
 import os
 
+rom pyrogram.errors.exceptions.bad_request_400 import PeerIdInvalid
+from pyrogram.errors import UserNotParticipant
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, InputMediaPhoto, InputTextMessageContent
 from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, PeerIdInvalid, UserNotParticipant, UserBannedInChannel
@@ -12,6 +14,8 @@ Client = Client(
     api_hash= "0587408d4f7d9301f5295840b0f3b494",
 )
 
+
+force_subchannel = "Memehubtgsl"
 
 START_STRING ="""
 Hi {}, Welcome to  MemeHub Telegram 🇱🇰 Official Bot.
@@ -35,6 +39,17 @@ START_BUTTON = InlineKeyboardMarkup([[
                  ]]
                   )
                   
+FORCESUB_BUTTONS = InlineKeyboardMarkup([[
+                 InlineKeyboardButton('Join Here - MemeHub Telegram 🇱🇰', url=f"https://t.me/{force_subchannel}")
+                 ],
+                 [
+                 InlineKeyboardButton('🐞 ʀᴘᴏʀᴛ ʙᴜɢs 🐞', url=f"https://t.me/Imgishan")
+                 ],
+                 [
+                 InlineKeyboardButton(text="♻️ Reload ♻️",callback_data="ref")
+                 ]]
+                  )
+    
 HELP_STRING = "Meme Tiye nam dapam Mekata😒😂. Adminlata Msg Daanna One Nam ekat Mekata dapam 😒😂"
 
 CLOSE_BUTTON = InlineKeyboardMarkup([[
@@ -42,6 +57,7 @@ CLOSE_BUTTON = InlineKeyboardMarkup([[
                  ]]
                  )
 
+FORCESUB_TEXT = "**❌ Access Denied ❌**\n\n🌷Memehub eke nathuva Mokatada yako Botva Start Kare 😒😒\n♻️Join Try Again.♻️"
                   
 WELCOME_TEXT = "Hello.. <b>{}</b>\n<code>Type your query here..\nI'll respond to your query as earliest</code> 😉\n\nуσυ ωαииα тσ киσω αвσυт мє😌? яєα∂ вєℓσω\n\nαвσυт @Gishankrishka:-\n •му иαмє:- Gishan Krishka \n •му αgє:- υикиσωи🌝\n •¢σмρυтєя ℓαиgυαgє:- ωєв ∂єνєℓσρмєит(ℓєαяиιиg), ρутнσи мσяє ѕσσи😁\n•¢нє¢к [About ༒❣️☢️╣IrØή❂mคŇ╠☢️❣️༒](https://t.me/Gishankrishka_Info_bot) fσя мσяє\n\nPlz Don't Send Stickers 🥲\nReason :- [This](https://t.me/ultchat/19589)"
 USER_DETAILS = "<b>FROM:</b>\nName: {} {}\nId: {}\nUname: @{}\nScam: {}\nRestricted: {}\nStatus: {}\nDc Id: {}"
@@ -58,6 +74,22 @@ async def startprivate(bot, message):
     info = await bot.get_users(user_ids=message.from_user.id)
     USER_DETAILS = f"[{message.from_user.mention}](tg://user?id={message.from_user.id}) [`{message.from_user.id}`] Started Ur Bot.\n\n**First Name: `{info.first_name}`**\n**LastName: `{info.last_name}`**\n**Scam: `{info.is_scam}`**\n**Restricted: `{info.is_restricted}`**\n**Status:`{info.status}`**\n**Dc Id: `{info.dc_id}`**"
     await bot.send_message(-1001759991131, text=USER_DETAILS, reply_markup=USER)
+     if force_subchannel:
+        try:
+            user = await bot.get_chat_member(force_subchannel, message.from_user.id)
+            if user.status == "kicked out":
+                await message.reply_text("Yourt Banned")
+                return 
+        except UserNotParticipant:
+            file_id = "CAADBQADVwYAAhCWAVRcksqpPVEWHAI"
+            await bot.send_sticker(message.chat.id, file_id)
+            text = FORCESUB_TEXT
+            reply_markup = FORCESUB_BUTTONS
+            await message.reply_text(
+            text=text,
+            reply_markup=reply_markup
+            ) 
+            return
     file_id = "CAADBQADVwYAAhCWAVRcksqpPVEWHAI"
     await bot.send_sticker(message.chat.id, file_id)
     text = f"Hi {message.from_user.mention}, Welcome to  MemeHub Telegram 🇱🇰 Official Bot\n\n★彡 ʙᴏᴛ ʙʏ 彡★\n[◤ᴵᴬᴹǤΐรhaή ᴷʳⁱˢʰᵏᵃ◢ 『🇱🇰』](https://t.me/Imgishan)\n[unknown boy┊𝙰𝙻𝙿𝙷𝙰 么 ™](t.me/UnknownB_o_y)"
@@ -178,6 +210,10 @@ async def tgm(bot, update):
          )
     elif update.data == "cloc":
          await update.message.delete()
+    elif update.data == "ref": 
+        await update.answer(
+             text="♻️Reloading.....♻️",
+        )        
          
 @Client.on_message(filters.user(1884885842) & filters.sticker)
 async def replay_media(bot, message):
