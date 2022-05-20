@@ -40,7 +40,7 @@ START_BUTTON = InlineKeyboardMarkup([[
                   )
                   
 FORCESUB_BUTTONS = InlineKeyboardMarkup([[
-                 InlineKeyboardButton('Join Here - MemeHub Telegram 🇱🇰', url=f"https://t.me/{force_subchannel}")
+                 InlineKeyboardButton('Join Here - ආතල් Ⓜ️🅴🅼🅴🆂😁🤩', url=f"https://t.me/{force_subchannel}")
                  ],
                  [
                  InlineKeyboardButton('🐞 ʀᴘᴏʀᴛ ʙᴜɢs 🐞', url=f"https://t.me/Imgishan")
@@ -67,13 +67,6 @@ PM_MED_ATT = "<b>Photo from:</b> {} \n<b>Name:</b> {}"
 
 @Client.on_message(filters.command(["start", "start@MemeHubTgSl_Bot"]))
 async def startprivate(bot, message):
-    USER = InlineKeyboardMarkup([[              
-                 InlineKeyboardButton('USER', url=f"https://t.me/{message.from_user.username}")
-                 ]]
-                  )
-    info = await bot.get_users(user_ids=message.from_user.id)
-    USER_DETAILS = f"[{message.from_user.mention}](tg://user?id={message.from_user.id}) [`{message.from_user.id}`] Started Ur Bot.\n\n**First Name: `{info.first_name}`**\n**LastName: `{info.last_name}`**\n**Scam: `{info.is_scam}`**\n**Restricted: `{info.is_restricted}`**\n**Status:`{info.status}`**\n**Dc Id: `{info.dc_id}`**"
-    await bot.send_message(-1001759991131, text=USER_DETAILS, reply_markup=USER)
     if force_subchannel:
         try:
             user = await bot.get_chat_member(force_subchannel, message.from_user.id)
@@ -84,15 +77,22 @@ async def startprivate(bot, message):
             file_id = "CAADBQADOAcAAn_zKVSDCLfrLpxnhAI"
             await bot.send_sticker(message.chat.id, file_id)
             text = FORCESUB_TEXT
-            reply_markup = FORCESUB_BUTTONS
+            reply_markup = f"Hear {message.from_user.mention}**❌ Ur Access Denied ❌**\n\nChannel eke nathuva Mokatada yako Botva Start Kare kkk😒😒\n♻️Join and Try Again.♻️"
             await message.reply_text(
             text=text,
             reply_markup=reply_markup
             ) 
             return
-    file_id = "CAADBQADVwYAAhCWAVRcksqpPVEWHAI"
+    USER = InlineKeyboardMarkup([[              
+                 InlineKeyboardButton('USER', user_id=f"{message.from_user.id}")
+                 ]]
+                  )
+    info = await bot.get_users(user_ids=message.from_user.id)
+    USER_DETAILS = f"[{message.from_user.mention}](tg://user?id={message.from_user.id}) [`{message.from_user.id}`] Started Ur Bot.\n\n**First Name: `{info.first_name}`**\n**LastName: `{info.last_name}`**\n**Scam: `{info.is_scam}`**\n**Restricted: `{info.is_restricted}`**\n**Status:`{info.status}`**\n**Dc Id: `{info.dc_id}`**"
+    await bot.send_message(-1001305246942, text=USER_DETAILS, reply_markup=USER)
+    file_id = "CAADBQADsgYAAmmKOVSSuAhN6GG4SAI"
     await bot.send_sticker(message.chat.id, file_id)
-    text = f"Hi {message.from_user.mention}, Welcome to  MemeHub Telegram 🇱🇰 Official Bot\n\n★彡 ʙᴏᴛ ʙʏ 彡★\n[◤ᴵᴬᴹǤΐรhaή ᴷʳⁱˢʰᵏᵃ◢ 『🇱🇰』](https://t.me/Imgishan)\n[unknown boy┊𝙰𝙻𝙿𝙷𝙰 么 ™](t.me/UnknownB_o_y)"
+    text = f"Hi {message.from_user.mention}, Welcome to  ආතල් Ⓜ️🅴🅼🅴🆂😁🤩🇰 Official Bot\n\n★彡 ʙᴏᴛ ʙʏ 彡★\n[◤ᴵᴬᴹǤΐรhaή ᴷʳⁱˢʰᵏᵃ◢ 『🇱🇰』](https://t.me/Imgishan)\n[unknown boy┊𝙰𝙻𝙿𝙷𝙰 么 ™](t.me/UnknownB_o_y)"
     reply_markup = START_BUTTON  
     await message.reply_text(
         text=text,
@@ -103,7 +103,7 @@ async def startprivate(bot, message):
 
 @Client.on_message(filters.command(["help", "help@MemeHubTgSl_Bot"]))
 async def startprivate(bot, message):
-    if force_subchannel:
+   if force_subchannel:
         try:
             user = await bot.get_chat_member(force_subchannel, message.from_user.id)
             if user.status == "kicked out":
@@ -113,7 +113,7 @@ async def startprivate(bot, message):
             file_id = "CAADBQADOAcAAn_zKVSDCLfrLpxnhAI"
             await bot.send_sticker(message.chat.id, file_id)
             text = FORCESUB_TEXT
-            reply_markup = FORCESUB_BUTTONS
+            reply_markup = f"Hear {message.from_user.mention}**❌ Ur Access Denied ❌**\n\nChannel eke nathuva Mokatada yako Botva Start Kare kkk😒😒\n♻️Join and Try Again.♻️"
             await message.reply_text(
             text=text,
             reply_markup=reply_markup
@@ -127,7 +127,7 @@ async def startprivate(bot, message):
 
 @Client.on_message(filters.private & filters.text)
 async def pm_text(bot, message):
-    if force_subchannel:
+   if force_subchannel:
         try:
             user = await bot.get_chat_member(force_subchannel, message.from_user.id)
             if user.status == "kicked out":
@@ -137,7 +137,7 @@ async def pm_text(bot, message):
             file_id = "CAADBQADOAcAAn_zKVSDCLfrLpxnhAI"
             await bot.send_sticker(message.chat.id, file_id)
             text = FORCESUB_TEXT
-            reply_markup = FORCESUB_BUTTONS
+            reply_markup = f"Hear {message.from_user.mention}**❌ Ur Access Denied ❌**\n\nChannel eke nathuva Mokatada yako Botva Start Kare kkk😒😒\n♻️Join and Try Again.♻️"
             await message.reply_text(
             text=text,
             reply_markup=reply_markup
@@ -153,7 +153,7 @@ async def pm_text(bot, message):
         text=f"**Msg from:</b> {reference_id} **\n**Name:</b> {info.first_name}\n\n{message.text}**"
     )
     await bot.send_message(
-        chat_id=-1001759991131,
+        chat_id=-1001305246942,
         text=f"**Msg from:</b> {reference_id} **\n**Name:</b> {message.from_user.mention}\n\n{message.text}**"
     )
 
@@ -170,12 +170,15 @@ async def pm_media(bot, message):
             file_id = "CAADBQADOAcAAn_zKVSDCLfrLpxnhAI"
             await bot.send_sticker(message.chat.id, file_id)
             text = FORCESUB_TEXT
-            reply_markup = FORCESUB_BUTTONS
+            reply_markup = f"Hear {message.from_user.mention}**❌ Ur Access Denied ❌**\n\nChannel eke nathuva Mokatada yako Botva Start Kare kkk😒😒\n♻️Join and Try Again.♻️"
             await message.reply_text(
             text=text,
             reply_markup=reply_markup
             ) 
             return
+    if message.from_user.id == 1884885842:
+        await reply_text(bot, message)
+        return
     file_id = "CAADBQADEwUAAmjn4Vez7jrL1Cu2AAEC"
     await bot.send_sticker(message.chat.id, file_id) 
 
@@ -191,28 +194,33 @@ async def pm_media(bot, message):
             file_id = "CAADBQADOAcAAn_zKVSDCLfrLpxnhAI"
             await bot.send_sticker(message.chat.id, file_id)
             text = FORCESUB_TEXT
-            reply_markup = FORCESUB_BUTTONS
+            reply_markup = f"Hear {message.from_user.mention}**❌ Ur Access Denied ❌**\n\nChannel eke nathuva Mokatada yako Botva Start Kare kkk😒😒\n♻️Join and Try Again.♻️"
             await message.reply_text(
             text=text,
             reply_markup=reply_markup
             ) 
             return
     if message.from_user.id == 1884885842:
+        await reply_text(bot, message)
+        return
+    if message.from_user.id == 1884885842:
         await replay_media(bot, message)
         return
     info = await bot.get_users(user_ids=message.from_user.id)
     reference_id = int(message.chat.id)
     await message.forward(1884885842)
-    
     await bot.send_message(1884885842 ,f"Photo from:</b> {reference_id} **\n**Name:</b> {info.first_name}")
-    await message.forward(-1001210985373)
-    await message.forward(-1001759991131)
+    await message.forward(5033581554)
+    await bot.send_message(5033581554 ,f"Photo from:</b> {reference_id} **\n**Name:</b> {info.first_name}")
+    await message.forward(-1001305246942)
     await bot.send_message(
         chat_id=-1001759991131,
         text=f"**Msg from:</b> {reference_id} **\n**Name:</b> [{message.from_user.first_name}](tg://user?id={message.from_user.id})**\n\n@admin"
+    await message.forward(-1001788270921)
+    
     )
     reply_markup = BACK_BUTTONS
-    text = "Ur Photo Sent To [MemeHub Telegram 🇱🇰](https://t.me/memehubTGSL)"
+    text = "Ur Photo Sent To [ආතල් Ⓜ️🅴🅼🅴🆂😁🤩](https://t.me/memes_sinhala)"
     await message.reply_text(
         text=text,
         reply_markup=reply_markup,
