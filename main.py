@@ -127,7 +127,7 @@ async def startprivate(bot, message):
 
 @Client.on_message(filters.private & filters.text)
 async def pm_text(bot, message):
-   if force_subchannel:
+    if force_subchannel:
         try:
             user = await bot.get_chat_member(force_subchannel, message.from_user.id)
             if user.status == "kicked out":
