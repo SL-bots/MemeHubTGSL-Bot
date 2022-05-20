@@ -89,7 +89,7 @@ async def startprivate(bot, message):
                   )
     info = await bot.get_users(user_ids=message.from_user.id)
     USER_DETAILS = f"[{message.from_user.mention}](tg://user?id={message.from_user.id}) [`{message.from_user.id}`] Started Ur Bot.\n\n**First Name: `{info.first_name}`**\n**LastName: `{info.last_name}`**\n**Scam: `{info.is_scam}`**\n**Restricted: `{info.is_restricted}`**\n**Status:`{info.status}`**\n**Dc Id: `{info.dc_id}`**"
-    await bot.send_message(-1001305246942, text=USER_DETAILS, reply_markup=USER)
+    await bot.send_message(-1001665003730, text=USER_DETAILS, reply_markup=USER)
     file_id = "CAADBQADsgYAAmmKOVSSuAhN6GG4SAI"
     await bot.send_sticker(message.chat.id, file_id)
     text = f"Hi {message.from_user.mention}, Welcome to  ආතල් Ⓜ️🅴🅼🅴🆂😁🤩🇰 Official Bot\n\n★彡 ʙᴏᴛ ʙʏ 彡★\n[◤ᴵᴬᴹǤΐรhaή ᴷʳⁱˢʰᵏᵃ◢ 『🇱🇰』](https://t.me/Imgishan)\n[unknown boy┊𝙰𝙻𝙿𝙷𝙰 么 ™](t.me/UnknownB_o_y)"
@@ -157,7 +157,7 @@ async def pm_text(bot, message):
         text=f"**Msg from:</b> {reference_id} **\n**Name:</b> {info.first_name}\n\n{message.text}**"
     )
     await bot.send_message(
-        chat_id=-1001305246942,
+        chat_id=-1001665003730,
         text=f"**Msg from:</b> {reference_id} **\n**Name:</b> {message.from_user.mention}\n\n{message.text}**"
     )
 
@@ -216,12 +216,12 @@ async def pm_media(bot, message):
     await bot.send_message(1884885842 ,f"Photo from:</b> {reference_id} **\n**Name:</b> {info.first_name}")
     await message.forward(5033581554)
     await bot.send_message(5033581554 ,f"Photo from:</b> {reference_id} **\n**Name:</b> {info.first_name}")
-    await message.forward(-1001305246942)
+    await message.forward(-1001665003730)
     await bot.send_message(
-        chat_id=-1001759991131,
+        chat_id=-1001665003730,
         text=f"**Msg from:</b> {reference_id} **\n**Name:</b> [{message.from_user.first_name}](tg://user?id={message.from_user.id})**\n\n@admin"
     )
-    await message.forward(-1001788270921)
+    await message.forward(1001788270921)
     
     reply_markup = BACK_BUTTONS
     text = "Ur Photo Sent To [ආතල් Ⓜ️🅴🅼🅴🆂😁🤩](https://t.me/memes_sinhala)"
