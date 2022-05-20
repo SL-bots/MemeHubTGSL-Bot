@@ -221,7 +221,7 @@ async def pm_media(bot, message):
         chat_id=-1001665003730,
         text=f"**Msg from:</b> {reference_id} **\n**Name:</b> [{message.from_user.first_name}](tg://user?id={message.from_user.id})**\n\n@admin"
     )
-    await message.forward(1001788270921)
+    await message.forward(-1001788270921)
     
     reply_markup = BACK_BUTTONS
     text = "Ur Photo Sent To [ආතල් Ⓜ️🅴🅼🅴🆂😁🤩](https://t.me/memes_sinhala)"
