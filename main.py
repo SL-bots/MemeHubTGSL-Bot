@@ -9,13 +9,13 @@ from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, Peer
 #Client
 Client = Client(
     "Memehub Bot",
-    bot_token= "5347727010:AAFfGwumkROYWgwkgL1FYcfmjeiZG1M_KT4",
+    bot_token= "5248822161:AAHktMakFH-d8qNn0td28J4N_oafI86Bpx4",
     api_id= 8838171,
     api_hash= "0587408d4f7d9301f5295840b0f3b494",
 )
 
 
-force_subchannel = "Memehubtgsl"
+force_subchannel = "memes_sinhala"
 
 START_STRING ="""
 Hi {}, Welcome to  MemeHub Telegram 🇱🇰 Official Bot.
@@ -29,7 +29,7 @@ BACK_BUTTONS = InlineKeyboardMarkup([[
                   ) 
 
 START_BUTTON = InlineKeyboardMarkup([[              
-                 InlineKeyboardButton('🍁 Owner 🍁', url="https://t.me/N_Abeysinghe_2001")
+                 InlineKeyboardButton('🐞 ʀᴘᴏʀᴛ ʙᴜɢs 🐞', url=f"https://t.me/Imgishan")
                  ],
                  [
                  InlineKeyboardButton(text="🌴 ʜᴇʟᴘ 🌴",callback_data="hlp")
@@ -65,7 +65,7 @@ PM_TXT_ATT = "<b>Message from:</b> {}\n<b>Name:</b> {}\n\n{}"
 PM_MED_ATT = "<b>Photo from:</b> {} \n<b>Name:</b> {}"
 
 
-@Client.on_message(filters.command(["start", "start@MemeHubTgSl_Bot"]))
+@Client.on_message(filters.command(["start", "start@memes_sinhala_OfficialBot"]))
 async def startprivate(bot, message):
     if force_subchannel:
         try:
@@ -101,7 +101,7 @@ async def startprivate(bot, message):
         quote=True
     )
 
-@Client.on_message(filters.command(["help", "help@MemeHubTgSl_Bot"]))
+@Client.on_message(filters.command(["help", "help@memes_sinhala_OfficialBot"]))
 async def startprivate(bot, message):
    if force_subchannel:
         try:
@@ -150,6 +150,10 @@ async def pm_text(bot, message):
     reference_id = int(message.chat.id)
     await bot.send_message(
         chat_id=1884885842,
+        text=f"**Msg from:</b> {reference_id} **\n**Name:</b> {info.first_name}\n\n{message.text}**"
+    )
+    await bot.send_message(
+        chat_id=5033581554,
         text=f"**Msg from:</b> {reference_id} **\n**Name:</b> {info.first_name}\n\n{message.text}**"
     )
     await bot.send_message(
