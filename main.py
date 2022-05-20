@@ -76,8 +76,8 @@ async def startprivate(bot, message):
         except UserNotParticipant:
             file_id = "CAADBQADOAcAAn_zKVSDCLfrLpxnhAI"
             await bot.send_sticker(message.chat.id, file_id)
-            text = FORCESUB_TEXT
-            reply_markup = f"Hear {message.from_user.mention}**❌ Ur Access Denied ❌**\n\nChannel eke nathuva Mokatada yako Botva Start Kare kkk😒😒\n♻️Join and Try Again.♻️"
+            text = f"Dear {message.from_user.mention}**❌ Ur Access Denied ❌**\n\nChannel eke nathuva Mokatada yako Botva Start Kare kkk😒😒\n♻️Join and Try Again.♻️"
+            reply_markup = FORCESUB_BUTTONS
             await message.reply_text(
             text=text,
             reply_markup=reply_markup
@@ -112,8 +112,8 @@ async def startprivate(bot, message):
         except UserNotParticipant:
             file_id = "CAADBQADOAcAAn_zKVSDCLfrLpxnhAI"
             await bot.send_sticker(message.chat.id, file_id)
-            text = FORCESUB_TEXT
-            reply_markup = f"Hear {message.from_user.mention}**❌ Ur Access Denied ❌**\n\nChannel eke nathuva Mokatada yako Botva Start Kare kkk😒😒\n♻️Join and Try Again.♻️"
+            text = f"Dear {message.from_user.mention}**❌ Ur Access Denied ❌**\n\nChannel eke nathuva Mokatada yako Botva Start Kare kkk😒😒\n♻️Join and Try Again.♻️"
+            reply_markup = FORCESUB_BUTTONS
             await message.reply_text(
             text=text,
             reply_markup=reply_markup
@@ -136,8 +136,8 @@ async def pm_text(bot, message):
         except UserNotParticipant:
             file_id = "CAADBQADOAcAAn_zKVSDCLfrLpxnhAI"
             await bot.send_sticker(message.chat.id, file_id)
-            text = FORCESUB_TEXT
-            reply_markup = f"Hear {message.from_user.mention}**❌ Ur Access Denied ❌**\n\nChannel eke nathuva Mokatada yako Botva Start Kare kkk😒😒\n♻️Join and Try Again.♻️"
+            text = f"Dear {message.from_user.mention}**❌ Ur Access Denied ❌**\n\nChannel eke nathuva Mokatada yako Botva Start Kare kkk😒😒\n♻️Join and Try Again.♻️"
+            reply_markup = FORCESUB_BUTTONS
             await message.reply_text(
             text=text,
             reply_markup=reply_markup
@@ -173,8 +173,8 @@ async def pm_media(bot, message):
         except UserNotParticipant:
             file_id = "CAADBQADOAcAAn_zKVSDCLfrLpxnhAI"
             await bot.send_sticker(message.chat.id, file_id)
-            text = FORCESUB_TEXT
-            reply_markup = f"Hear {message.from_user.mention}**❌ Ur Access Denied ❌**\n\nChannel eke nathuva Mokatada yako Botva Start Kare kkk😒😒\n♻️Join and Try Again.♻️"
+            text = f"Dear {message.from_user.mention}**❌ Ur Access Denied ❌**\n\nChannel eke nathuva Mokatada yako Botva Start Kare kkk😒😒\n♻️Join and Try Again.♻️"
+            reply_markup = FORCESUB_BUTTONS
             await message.reply_text(
             text=text,
             reply_markup=reply_markup
@@ -197,8 +197,8 @@ async def pm_media(bot, message):
         except UserNotParticipant:
             file_id = "CAADBQADOAcAAn_zKVSDCLfrLpxnhAI"
             await bot.send_sticker(message.chat.id, file_id)
-            text = FORCESUB_TEXT
-            reply_markup = f"Hear {message.from_user.mention}**❌ Ur Access Denied ❌**\n\nChannel eke nathuva Mokatada yako Botva Start Kare kkk😒😒\n♻️Join and Try Again.♻️"
+            text = f"Dear {message.from_user.mention}**❌ Ur Access Denied ❌**\n\nChannel eke nathuva Mokatada yako Botva Start Kare kkk😒😒\n♻️Join and Try Again.♻️"
+            reply_markup = FORCESUB_BUTTONS
             await message.reply_text(
             text=text,
             reply_markup=reply_markup
