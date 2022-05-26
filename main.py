@@ -110,8 +110,8 @@ db = Database(DATABASE_URL, "Memehu_bott")
 
 @Client.on_message(filters.command("start"))
 async def start(bot, message):
-    if not await db.is_user_exist(update.from_user.id):
-         await db.add_user(update.from_user.id)
+    if not await db.is_user_exist(message.from_user.id):
+         await db.add_user(message.from_user.id)
     if force_subchannel:
         try:
             user = await bot.get_chat_member(force_subchannel, message.from_user.id)
