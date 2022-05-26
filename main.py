@@ -105,11 +105,13 @@ back = ReplyKeyboardMarkup(
       )
 password = "9vQtrB1LxJbVXc5a"
 DATABASE_URL=f'mongodb+srv://Gishankrishka1:GG200695gg@cluster0.42q73.mongodb.net/Gishankrishka1?retryWrites=true&w=majority'
-db = Database(DATABASE_URL, "Memehu_bot")
+db = Database(DATABASE_URL, "Memehu_bott")
 #-------------------------------start---------------------------------------#
 
 @Client.on_message(filters.command("start"))
 async def start(bot, message):
+    if not await db.is_user_exist(update.from_user.id):
+         await db.add_user(update.from_user.id)
     if force_subchannel:
         try:
             user = await bot.get_chat_member(force_subchannel, message.from_user.id)
