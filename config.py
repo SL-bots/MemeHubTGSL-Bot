@@ -23,8 +23,6 @@ Hi {}, Welcome to  MemeHub Telegram 🇱🇰 Official Bot.
  Bot By [◤ᴵᴬᴹǤΐรhaή ᴷʳⁱˢʰᵏᵃ◢ 『🇱🇰』](https://t.me/Imgishan)
 """
 CALCULATE_TEXT = "◇─────◇ Calculator ◇─────◇"
-password = "AgWKo1cHWmcfrkWt"
-DATABASE_URL=f'mongodb+srv://Pcaya:AgWKo1cHWmcfrkWt@cluster0.kiisx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
 
 #Inline Btn
