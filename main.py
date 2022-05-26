@@ -104,8 +104,8 @@ back = ReplyKeyboardMarkup(
         resize_keyboard=True  # Make the keyboard smaller
       )
 password = "9vQtrB1LxJbVXc5a"
-DATABASE_URL=f'mongodb+srv://ultroid10:9vQtrB1LxJbVXc5a@cluster0.4ssb3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-db = Database(DATABASE_URL, "test-bot")
+DATABASE_URL=f'mongodb+srv://Gishan:f3qzIj0SINTQjgAg@cluster0.4ssb3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+db = Database(DATABASE_URL, "Memehu_bot")
 #-------------------------------start---------------------------------------#
 
 @Client.on_message(filters.command("start"))
