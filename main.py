@@ -184,15 +184,16 @@ async def startprivate(bot, message):
 
 #----------------------------------main cmdd-------------------------------------#
         
-@Client.on_message(filters.user(1884885842) & filters.private & filters.command("stats"), group=5)
+@Client.on_message(filters.user(1884885842) & filters.private & filters.command("status"), group=5)
 async def status(bot, update):
     if not await db.is_user_exist(update.from_user.id):
          await db.add_user(update.from_user.id)
-    
+         
     await bot.send_sticker(update.chat.id, random.choice(STAT_STICKER))
     total_users = await db.total_users_count()
     text = "**Bot Advanced Statistics 📊**\n"
     text += f"\n**Total Users:** `{total_users}`"
+
     await update.reply_text(
         text=text,
         quote=True,
@@ -201,7 +202,7 @@ async def status(bot, update):
 
 @Client.on_message(
     filters.private &
-    filters.command("bcast") &
+    filters.command("broadcast") &
     filters.user(1884885842) &
     filters.reply
 )
@@ -251,7 +252,7 @@ async def broadcast(bot, update, broadcast_ids={}):
     else:
         await update.reply_document(document='broadcast.txt', caption=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.")
         
-    os.remove('broadcast.txt')
+    os.remove('broadcast.txt')   
     
 
 @Client.on_message(filters.command(["help", "help@MemeHubTgSl_Bot"]))
