@@ -104,8 +104,8 @@ back = ReplyKeyboardMarkup(
         resize_keyboard=True  # Make the keyboard smaller
       )
       
-password = "GG200695gg"
-DATABASE_URL=f'mongodb+srv://Gishankrishka1:GG200695gg@cluster0.42q73.mongodb.net/Gishankrishka1?retryWrites=true&w=majority'
+password = "AgWKo1cHWmcfrkWt"
+DATABASE_URL=f'mongodb+srv://Pcaya:{password}@cluster0.kiisx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 db = Database(DATABASE_URL, "Memehub_bot")     
 #-------------------------------start---------------------------------------#
 
