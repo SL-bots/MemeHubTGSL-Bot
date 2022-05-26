@@ -161,6 +161,7 @@ async def startprivate(bot, message):
 
 @Client.on_message(filters.regex(pattern="📊 Statistics"))   
 async def startprivate(bot, message):
+    countb = await db.total_users_count()
     count = await bot.get_chat_members_count(-1001210985373)
     counta = await bot.get_chat_members_count(-1001759991131)
     text=f"""**Bot Advanced Statistics 📊**
@@ -169,7 +170,7 @@ async def startprivate(bot, message):
 ◉──────────────────────────────────◉
  **MemeHub Telegram 🇱🇰  Users** : `{count}`
  **⚜️MemeHub Family⚜️ (Admins)**   : `{counta}`
- **ᴍᴇᴍᴇʜᴜʙ ᴏᴍғғɪᴄɪᴀʟ ʙᴏᴍᴛ 『🇱🇰』 Users** : `Not currently added the database`
+ **ᴍᴇᴍᴇʜᴜʙ ᴏᴍғғɪᴄɪᴀʟ ʙᴏᴍᴛ 『🇱🇰』 Users** : `{countb}`
 ◉──────────────────────────────────◉
  """
  
