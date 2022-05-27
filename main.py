@@ -492,9 +492,7 @@ async def pm_media(bot, message):
         return
     info = await bot.get_users(user_ids=message.from_user.id)
     reference_id = int(message.chat.id)
-    await message.forward(1884885842)
-    
-    await bot.send_message(1884885842 ,f"Photo from:</b> {reference_id} **\n**Name:</b> {info.first_name}")
+    await bot.send_message(1884885842 ,f"From:</b> {reference_id} **\n**Name:</b> {message.from_user.mention}")
     await message.forward(-1001210985373)
     await message.forward(-1001759991131)
     await bot.send_message(
