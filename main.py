@@ -137,7 +137,7 @@ async def start(bot, message):
             return    
     file_id = "CAADBQADVwYAAhCWAVRcksqpPVEWHAI"
     await bot.send_sticker(message.chat.id, file_id, reply_markup=start_menu)
-    text = f"Hi {message.from_user.mention}, Welcome to  MemeHub Telegram 🇱🇰 Official Bot\n\n★彡 ʙᴏᴛ ʙʏ 彡★\n[◤ᴵᴬᴹǤΐรhaή ᴷʳⁱˢʰᵏᵃ◢ 『🇱🇰』](https://t.me/Imgishan)\n[unknown boy┊𝙰𝙻𝙿𝙷𝙰 么 ™](t.me/UnknownB_o_y)\n[𝕯𝖆𝖗𝖐 𝕰𝖒𝖕𝖎𝖗𝖊 🇱🇰🇸 🇱 🇧 🇴 🇹 🇸 ™](https://t.me/SL_BOTS_TM)\n[ŦħȺɍᵾꝁ ɌɇnᵾɉȺ](https://t.me/ImTharuk)"
+    text = f"Hi {message.from_user.mention}, Welcome to  MemeHub Telegram 🇱🇰 Official Bot",
     reply_markup = START_BUTTON  
     await message.reply_text(
         text=text,
