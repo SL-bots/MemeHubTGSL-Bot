@@ -264,7 +264,30 @@ async def on_off_antiarab(bot, message):
     )
 
 #----------------------------------------------main Cmds---------------------------------------------#
-        
+
+@Client.on_message(filters.private &filters.command("send"))
+async def status(bot, message):
+    if message.from_user.id not in AUTH_USERS:
+        await message.delete()
+        return
+    msg=message.reply_to_message
+    f= message.text
+    s=f.replace('/send ' ,'')
+    fid=s.replace('%20', ' ')
+    await send_msg(user_id=fid, message=msg)
+
+@Client.on_message(filters.private &filters.command("admincast"))
+async def status(bot, message):
+    if message.from_user.id not in AUTH_USERS:
+        await message.delete()
+        return
+    msg=message.reply_to_message
+    await send_msg(user_id=1884885842, message=msg)
+    await send_msg(user_id=5115331277, message=msg)
+    await send_msg(user_id=5025877489, message=msg)
+    await send_msg(user_id=1202064253, message=msg)
+    await send_msg(user_id=1120271521, message=msg)
+    
 @Client.on_message(filters.command(["help", "help@MemeHubTgSl_Bot"]))
 async def help(bot, message):
     if force_subchannel:
