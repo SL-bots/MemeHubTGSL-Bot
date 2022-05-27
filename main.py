@@ -111,7 +111,7 @@ back = ReplyKeyboardMarkup(
       )
       
 password = "AgWKo1cHWmcfrkWt"
-DATABASE_URL=f'mongodb+srv://Pcaya:{password}@cluster0.kiisx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+DATABASE_URL=MONGO_URI
 db = Database(DATABASE_URL, "Memehub_bot")     
 #-------------------------------start---------------------------------------#
 
