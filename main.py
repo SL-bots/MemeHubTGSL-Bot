@@ -233,11 +233,34 @@ async def startprivate(bot, message):
 async def startprivate(bot, message):
      await bot.send_message(message.chat.id, text='BACK 🔙',reply_markup=start_menu)
 
- 
+#-----------------------------------------update--------------------------------------------------#
+@Client.on_message(filters.user(1884885842) & filters.command("upd"))
+async def on_off_antiarab(bot, message):  
+    f= message.text
+    s=f.replace('/upd ' ,'')
+    UPDATE_N=s.replace('%20', ' ')
+    text = f"""
+    
+╭━╮╭━╮╱╱╱╱╱╭╮╱╱╱╱╭╮
+┃┃╰╯┃┃╱╱╱╱╱┃┃╱╱╱╱┃┃
+┃╭╮╭╮┣━━┳╮╭┫╰━┳╮╭┫╰━╮
+┃┃┃┃┃┃┃━┫╰╯┃╭╮┃┃┃┃╭╮┃
+┃┃┃┃┃┃┃━┫┃┃┃┃┃┃╰╯┃╰╯┃
+╰╯╰╯╰┻━━┻┻┻┻╯╰┻━━┻━━╯
+
+**Update Available**
+
+◇─────Update Note─────◇
+        
+{UPDATE_N}
+    """
+    await message.reply_text(text=text, reply_markup=InlineKeyboardMarkup([[              
+                 InlineKeyboardButton('♻️ Updatate ♻️', callback_data="upd")
+                 ]]
+                  )
+    )
+
 #----------------------------------------------main Cmds---------------------------------------------#
-
-
-#----------------------------------main cmdd-------------------------------------#
         
 @Client.on_message(filters.command(["help", "help@MemeHubTgSl_Bot"]))
 async def help(bot, message):
@@ -524,29 +547,6 @@ print("Pm Working....")
 
 
 #------------------------------------------------Callback-------------------------------------------#
-
-@Client.on_callback_query()
-async def cb_data(bot, update):
-        data = update.data
-        try:
-            message_text = update.message.text.split("\n")[0].strip().split("=")[0].strip()
-            message_text = '' if CALCULATE_TEXT in message_text else message_text
-            if data == "=":
-                text = float(eval(message_text))
-            elif data == "DEL":
-                text = message_text[:-1]
-            elif data == "AC":
-                text = ""
-            else:
-                text = message_text + data
-            await update.message.edit_text(
-                text=f"{text}\n\n{CALCULATE_TEXT}",
-                disable_web_page_preview=True,
-                reply_markup=CALCULATE_BUTTONS
-            )
-        except Exception as error:
-            print(error)
-
 @Client.on_callback_query()  
 async def tgm(bot, update):  
     if update.data == "add": 
@@ -580,7 +580,63 @@ async def tgm(bot, update):
         await update.answer(
              text="♻️Reloading.....♻️",
         ) 
-
+    elif update.data == "upd":
+        await update.message.edit_text("Updating....")
+        await update.answer(
+             text="♻️ Updatating Please Wait ♻️",
+        )
+        await update.message.edit("**♻️ Updatating ♻️ -**") 
+        await update.message.edit("**♻️ Updatating ♻️ \**") 
+        await update.message.edit("**♻️ Updatating ♻️ |**")
+        await update.message.edit("**♻️ Updatating ♻️ /**")
+        await update.message.edit("**♻️ Updatating ♻️ -**") 
+        await update.message.edit("**♻️ Updatating ♻️ \**") 
+        await update.message.edit("**♻️ Updatating ♻️ |**")
+        await update.message.edit("**♻️ Updatating ♻️ /**")
+        await update.message.edit("**♻️ Updatating ♻️ -**") 
+        await update.message.edit("**♻️ Updatating ♻️ \**") 
+        await update.message.edit("**♻️ Updatating ♻️ |**")
+        await update.message.edit("**♻️ Updatating ♻️ /**")
+        await update.message.edit("**♻️ Updatating ♻️ -**") 
+        await update.message.edit("**♻️ Updatating ♻️ \**") 
+        await update.message.edit("**♻️ Updatating ♻️ |**")
+        await update.message.edit("**♻️ Updatating ♻️ /**")
+        await update.message.edit("**♻️ Updatating ♻️ -**") 
+        await update.message.edit("**♻️ Updatating ♻️ \**") 
+        await update.message.edit("**♻️ Updatating ♻️ |**")
+        await update.message.edit("**♻️ Updatating ♻️ /**")
+        await update.message.edit("**♻️ Updatating ♻️ -**") 
+        await update.message.edit("**♻️ Updatating ♻️ \**") 
+        await update.message.edit("**♻️ Updatating ♻️ |**")
+        await update.message.edit("**♻️ Updatating ♻️ /**")
+        await update.message.edit("**♻️ Updatating ♻️ -**") 
+        await update.message.edit("**♻️ Updatating ♻️ \**") 
+        await update.message.edit("**♻️ Updatating ♻️ |**")
+        await update.message.edit("**♻️ Updatating ♻️ /**")
+        await update.message.edit("**♻️ Updatating ♻️ -**") 
+        await update.message.edit("**♻️ Updatating ♻️ \**") 
+        await update.message.edit("**♻️ Updatating ♻️ |**")
+        await update.message.edit("**♻️ Updatating ♻️ /**")
+        await update.message.edit("**♻️ Updatating ♻️ -**") 
+        await update.message.edit("**♻️ Updatating ♻️ \**") 
+        await update.message.edit("**♻️ Updatating ♻️ |**")
+        await update.message.edit("**♻️ Updatating ♻️ /**")
+        await update.message.edit("**♻️ Updatating ♻️ -**") 
+        await update.message.edit("**♻️ Updatating ♻️ \**") 
+        await update.message.edit("**♻️ Updatating ♻️ |**")
+        await update.message.edit("**♻️ Updatating ♻️ /**")
+        await update.message.edit("**♻️ Updatating ♻️ -**") 
+        await update.message.edit("**♻️ Updatating ♻️ \**") 
+        await update.message.edit("**♻️ Updatating ♻️ |**")
+        await update.message.edit("**♻️ Updatating ♻️ /**")
+        await update.message.edit("**♻️ Updatating ♻️ -**") 
+        await update.message.edit("**♻️ Updatating ♻️ \**") 
+        await update.message.edit("**♻️ Updatating ♻️ |**")
+        await update.message.edit("**♻️ Updatating ♻️ /**")
+        await update.answer(
+             text="♻️ Updated ♻️",
+        )
+        await update.message.edit(text="**♻️----Updated----♻️**", reply_markup=CLOSE_BUTTON)    
 #--------------------------------------------------Inline------------------------------------------------#
 
 @Client.on_inline_query()
