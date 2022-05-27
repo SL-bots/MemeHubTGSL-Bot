@@ -446,14 +446,14 @@ async def pm_media(bot, message):
         chat_id=1884885842,       
         from_chat_id=message.chat.id,
         message_id=message.id,
-        caption=PM_MED_ATT.format(reference_id, info.first_name)
+        caption=PM_MED_ATT.format(reference_id, message.from_user.mention)
     )
     reference_id = int(message.chat.id)
     await bot.copy_message(
         chat_id=-1001759991131,
         from_chat_id=message.chat.id,
         message_id=message.id,
-        caption=PM_MED_ATT.format(reference_id, info.first_name),
+        caption=PM_MED_ATT.format(reference_id, message.from_user.mention),
         reply_markup=InlineKeyboardMarkup([[
                  InlineKeyboardButton("✅ᴀᴄᴄᴇᴘᴛ", callback_data="acce"),
                  InlineKeyboardButton("❌ʀᴇᴊᴇᴄᴛ", callback_data="cloce")
