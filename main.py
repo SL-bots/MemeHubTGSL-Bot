@@ -147,7 +147,7 @@ async def start(bot, message):
     )
     if not await db.is_user_exist(message.from_user.id):
          USER = InlineKeyboardMarkup([[              
-                 InlineKeyboardButton('USER', user_id=f"{message.from_user.id}")
+                 InlineKeyboardButton('USER', user_id=f"tg://user?id={message.from_user.id}")
                  ]]
                   )
          info = await bot.get_users(user_ids=message.from_user.id)
