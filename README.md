@@ -49,4 +49,4 @@ CONTRIBUTIONS AND SUGGESTIONS ARE WELCOME !!
    - [Tharuk Renuja](github.com/TharukRenuja) ``Owner``
 
 # Contributors
-![GitHub Contributors Image](https://contrib.rocks/image?repo=Gishankrishka2/Memehub_bot)
+![GitHub Contributors Image](https://contrib.rocks/image?repo=imGishan/Memehubtgsl_bot)
