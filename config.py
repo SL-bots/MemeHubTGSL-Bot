@@ -57,7 +57,8 @@ START_BUTTON = InlineKeyboardMarkup([[
                  InlineKeyboardButton('🍁 Owner 🍁', user_id="@N_Abeysinghe_2001")
                  ],
                  [
-                 InlineKeyboardButton(text="🌴 ʜᴇʟᴘ 🌴",callback_data="hlp")
+                 InlineKeyboardButton(text="🌴 ʜᴇʟᴘ 🌴",callback_data="hlp"),
+                 InlineKeyboardButton("🍄 sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ 🍄", url="https://github.com/ImGishan/MemehubtgSl_Bot/edit/main/config.py")
                  ],
                  [
                  InlineKeyboardButton("➕ sʜᴀʀᴇ ➕", switch_inline_query="share")
