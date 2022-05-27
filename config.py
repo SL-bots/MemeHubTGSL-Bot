@@ -99,7 +99,7 @@ ADMIN_BTN = InlineKeyboardMarkup([[
                  InlineKeyboardButton('⚜️ K.Malith Punsara ⚜️', user_id="kmp32913291")
                  ],
                  [                 
-                 InlineKeyboardButton(' ගින්නෙ ඉන්න චීස් කෑල්ල', user_id="Chamath198")
+                 InlineKeyboardButton('ගින්නෙ ඉන්න චීස් කෑල්ල', url="tg://user?id=1344811260")
                  ],
                  [                 
                  InlineKeyboardButton('ŦħȺɍᵾꝁ ɌɇnᵾɉȺ', user_id="ImTharuk")
@@ -161,8 +161,23 @@ ADMIN_BTN = InlineKeyboardMarkup([[
                  [
                  InlineKeyboardButton('Sathish Kalhara', user_id="Sathish_Kalhara")
                  ],
-                 [                 
+                 [
                  InlineKeyboardButton('ᴱᴹᴾ ƇƠƲƝƬ ƊƦƛƇƲԼƛ', user_id="LordVladtheImpalerTransylvania")
+                 ], 
+                 [                 
+                 InlineKeyboardButton('Гейзенберг 🇱🇰', user_id="der_heisenberge")
+                 ],
+                 [
+                 InlineKeyboardButton('𝕵𝕬𝖄 𝕬𝕲𝕽𝕰', user_id="AgreeAgree")
+                 ],
+                 [                 
+                 InlineKeyboardButton('', user_id="Dr_Strome")
+                 ],
+                 [                 
+                 InlineKeyboardButton('B_.x._.sh._.n._.x._ ⁪⁬⁮⁮⁮⁮ ‌‌‌‌', user_id="Revolution_will_not_be_Televised")
+                 ],
+                 [                 
+                 InlineKeyboardButton('🔥ADMC⚡️⚡️THOR🔥', user_id="madushanka_Thor")
                  ]]
                   )
 
