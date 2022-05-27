@@ -634,6 +634,7 @@ async def tgm(bot, update):
         await update.answer(
              text="✅ᴍᴇssᴀɢᴇ ᴀᴄᴄᴇᴘᴛᴇᴅ",
         ) 
+        await update.message.delete() 
     
 #--------------------------------------------------Inline------------------------------------------------#
 
