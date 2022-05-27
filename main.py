@@ -1,3 +1,7 @@
+import re
+import uuid
+import socket
+import platform
 import os
 import random
 import time
@@ -5,6 +9,7 @@ import math
 import json
 import string
 import traceback
+import psutil
 import asyncio
 import wget
 import motor.motor_asyncio
@@ -16,6 +21,7 @@ from pyrogram.errors import *
 from pyrogram import Client, filters
 from pyrogram.errors import *
 from pyrogram.types import *
+from decorators import humanbytes
 from config import *
 
 #--------------------------------------------------Db-------------------------------------------------#
