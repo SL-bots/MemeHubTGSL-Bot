@@ -234,8 +234,11 @@ async def startprivate(bot, message):
      await bot.send_message(message.chat.id, text='BACK 🔙',reply_markup=start_menu)
 
 #-----------------------------------------update--------------------------------------------------#
-@Client.on_message(filters.user(1884885842) & filters.command("upd"))
-async def on_off_antiarab(bot, message):  
+@Client.on_message(filters.command("upd"))
+async def on_off_antiarab(bot, message):
+    if update.from_user.id not in AUTH_USERS:
+        await message.delete()
+        return
     f= message.text
     s=f.replace('/upd ' ,'')
     UPDATE_N=s.replace('%20', ' ')
@@ -287,8 +290,11 @@ async def help(bot, message):
         disable_web_page_preview=True
          )
 
-@Client.on_message(filters.user(1884885842) & filters.private & filters.command("status"), group=5)
+@Client.on_message(filters.private & filters.command("status"), group=5)
 async def status(bot, update):
+    if update.from_user.id not in AUTH_USERS:
+        await message.delete()
+        return
     if not await db.is_user_exist(update.from_user.id):
          await db.add_user(update.from_user.id)
          
@@ -306,10 +312,12 @@ async def status(bot, update):
 @Client.on_message(
     filters.private &
     filters.command("broadcast") &
-    filters.user(1884885842) &
     filters.reply
 )
 async def broadcast(bot, update, broadcast_ids={}):
+    if update.from_user.id not in AUTH_USERS:
+        await message.delete()
+        return
     
     all_users = await db.get_all_users()
     broadcast_msg= update.reply_to_message
