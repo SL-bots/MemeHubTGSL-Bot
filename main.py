@@ -137,7 +137,7 @@ async def start(bot, message):
             return    
     file_id = "CAADBQADVwYAAhCWAVRcksqpPVEWHAI"
     await bot.send_sticker(message.chat.id, file_id, reply_markup=start_menu)
-    text = f"Hi {message.from_user.mention}, Welcome to  MemeHub Telegram 🇱🇰 Official Bot",
+    text = f"Hi {message.from_user.mention}, Welcome to  MemeHub Telegram 🇱🇰 Official Bot"
     reply_markup = START_BUTTON  
     await message.reply_text(
         text=text,
@@ -390,21 +390,7 @@ async def broadcast(bot, update, broadcast_ids={}):
     os.remove('broadcast.txt') 
 
                        
-print("cmds.py Working....")
-
-#---------------------------------------------cal--------------------------------------------#
-
-@Client.on_message(filters.command(["cal", "calc", "calculate", "calculator"]))
-async def calculate(bot, update):
-    await update.reply_text(
-        text=CALCULATE_TEXT,
-        reply_markup=CALCULATE_BUTTONS,
-        disable_web_page_preview=True,
-        quote=True
-    )
-    
-
-print("Cal Working....")   
+print("cmds.py Working....")  
 
 #------------------------------------------------Pm----------------------------------------------------#
 
@@ -457,7 +443,7 @@ async def pm_media(bot, message):
         caption=PM_MED_ATT.format(reference_id, message.from_user.mention),
         reply_markup=InlineKeyboardMarkup([[
                  InlineKeyboardButton("✅ᴀᴄᴄᴇᴘᴛ", callback_data="acce"),
-                 InlineKeyboardButton("❌ʀᴇᴊᴇᴄᴛ", callback_data="cloce")
+                 InlineKeyboardButton("❌ʀᴇᴊᴇᴄᴛ", callback_data="cloc")
                  ]]
                  )
    )
@@ -602,6 +588,10 @@ async def tgm(bot, update):
         await update.answer(
              text="♻️Reloading.....♻️",
         ) 
+    elif update.data == "cloc":
+         await update.message.delete()
+         rid=update.message.caption.split()[2]
+         await bot.send_message(rid, text="☠️ Ur Message Rejected ☠️")
     elif update.data == "upd":
         await update.message.edit_text("Updating....")
         await update.answer(
