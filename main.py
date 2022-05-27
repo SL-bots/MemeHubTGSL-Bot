@@ -75,9 +75,9 @@ async def send_msg(user_id, message):
 
 Client = Client(
     "Memehub Bot",
-    bot_token= "5347727010:AAFZytDQ9Ikq0hBKgnJla6ETkyyyVGuV-r4",
-    api_id= 8838171,
-    api_hash= "0587408d4f7d9301f5295840b0f3b494",
+    bot_token= BOT_TOKEN,
+    api_id= API_ID,
+    api_hash= API_HASH,
 )
 
 #--------------------------------------configs-------------------------------------------#
