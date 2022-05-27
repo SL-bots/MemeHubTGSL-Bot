@@ -11,10 +11,22 @@
     "website": "https://github.com/Gishankrishka2/MultiPm",
     "success_url": "https://github.com/Gishankrishka2/MultiPm",
     "env": {
+        "API_HASH": {
+            "description": "",
+            "required": "True"
+        }, 
+        "API_ID": {
+            "description": "",
+            "required": "True"
+        },
         "BOT_TOKEN": {
             "description": "",
             "required": "True"
-        }
+        },
+        "AUTH_USERS": {
+            "description": "",
+            "required": "True"
+        }, 
     },
     "stack": "heroku-20",
     "buildpacks": [
