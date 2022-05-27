@@ -12,6 +12,7 @@ BOT_TOKEN = os.getenv("BOT_TOKEN")  # from @botfather
 API_ID = int(os.getenv("API_ID"))  # from https://my.telegram.org/apps
 API_HASH = os.getenv("API_HASH")  # from https://my.telegram.org/apps
 AUTH_USERS = set(int(x) for x in os.environ.get("AUTH_USERS", "1884885842 5115331277 5025877489 1202064253 1120271521").split())
+MONGO_URI = os.getenv("MONGO_URI")
 
 #Strings 
 USER_DETAILS = "<b>PM FROM:</b>\nName: {} {}\nId: {}\nUname: @{}\nScam: {}\nRestricted: {}\nStatus: {}\nDc Id: {}"
