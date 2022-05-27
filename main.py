@@ -146,7 +146,6 @@ async def start(bot, message):
         quote=True
     )
     if not await db.is_user_exist(message.from_user.id):
-       return
     USER = InlineKeyboardMarkup([[              
                  InlineKeyboardButton('USER', user_id=f"{message.from_user.id}")
                  ]]
