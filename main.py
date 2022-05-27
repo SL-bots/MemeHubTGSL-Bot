@@ -440,7 +440,7 @@ async def pm_media(bot, message):
     if message.from_user.id == 1884885842:
         await replay_media(bot, message)
         return
-    await bot.reply_text(text="Ur Photo Sent To [MemeHub Telegram 🇱🇰 ](https://t.me/memehubTGSL) Admins", reply_markup=CLOSE_BUTTON)
+    await message.reply_text(text="Ur Photo Sent To [MemeHub Telegram 🇱🇰 ](https://t.me/memehubTGSL) Admins", reply_markup=CLOSE_BUTTON)
     info = await bot.get_users(user_ids=message.from_user.id)
     reference_id = int(message.chat.id)
     await bot.copy_message(
