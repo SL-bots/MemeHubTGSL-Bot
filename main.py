@@ -236,7 +236,7 @@ async def startprivate(bot, message):
 #-----------------------------------------update--------------------------------------------------#
 @Client.on_message(filters.command("upd"))
 async def on_off_antiarab(bot, message):
-    if update.from_user.id not in AUTH_USERS:
+    if message.from_user.id not in AUTH_USERS:
         await message.delete()
         return
     f= message.text
