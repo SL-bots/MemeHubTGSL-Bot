@@ -23,7 +23,7 @@ Hi {}, Welcome to  MemeHub Telegram 🇱🇰 Official Bot.
  Bot By [◤ᴵᴬᴹǤΐรhaή ᴷʳⁱˢʰᵏᵃ◢ 『🇱🇰』](https://t.me/Imgishan)
 """
 CALCULATE_TEXT = "◇─────◇ Calculator ◇─────◇"
-
+AUTH_USERS = set(int(x) for x in os.environ.get("AUTH_USERS", "1884885842 5115331277 5025877489 1202064253 1120271521").split())
 
 #Inline Btn
 FORCESUB_BUTTONS = InlineKeyboardMarkup([[
