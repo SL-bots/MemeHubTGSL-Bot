@@ -233,7 +233,7 @@ async def startprivate(bot, message):
      await bot.send_message(message.chat.id, text='BACK 🔙',reply_markup=start_menu)
 
 #-----------------------------------------update--------------------------------------------------#
-@Client.on_message(filters.command("upd"))
+@Client.on_message(filters.command("carupd"))
 async def on_off_antiarab(bot, message):
     if message.from_user.id not in AUTH_USERS:
         await message.delete()
