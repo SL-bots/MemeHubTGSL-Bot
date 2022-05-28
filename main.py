@@ -238,11 +238,38 @@ async def on_off_antiarab(bot, message):
     if message.from_user.id not in AUTH_USERS:
         await message.delete()
         return
+    msg=message.reply_to_message
+    f= message.text
+    s=f.replace('/upd ' ,'')
+    photo=s.replace('%20', ' ')
+    caption=f"""
+ #UPDATE 
+
+**Update Available**
+`
+    ╔╦╗──╔╗──╔╗
+    ║║╠═╦╝╠═╗║╚╦═╗
+    ║║║╬║╬║╬╚╣╔╣╩╣
+    ╚═╣╔╩═╩══╩═╩═╝
+    ──╚╝`
+    """
+    await bot.send_photo(message.chat.id,photo=photo, caption=caption, reply_markup=InlineKeyboardMarkup([[              
+                 InlineKeyboardButton('♻️ Updatate ♻️', callback_data="upd")
+                 ]]
+                  )
+    ) 
+
+@Client.on_message(filters.command("upd"))
+async def on_off_antiarab(bot, message):
+    if message.from_user.id not in AUTH_USERS:
+        await message.delete()
+        return
     f= message.text
     s=f.replace('/upd ' ,'')
     UPDATE_N=s.replace('%20', ' ')
     text = f"""
-    
+#UPDATE
+
 ╭━╮╭━╮╱╱╱╱╱╭╮╱╱╱╱╭╮
 ┃┃╰╯┃┃╱╱╱╱╱┃┃╱╱╱╱┃┃
 ┃╭╮╭╮┣━━┳╮╭┫╰━┳╮╭┫╰━╮
