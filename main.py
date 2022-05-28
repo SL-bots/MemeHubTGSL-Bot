@@ -618,7 +618,7 @@ async def tgm(bot, update):
     elif update.data == "cloc":
          await update.message.delete()
          rid=update.message.caption.split()[2]
-         await bot.send_message(rid, text=f"☠️ **Ur Message Rejected By{update.from_user.mention}** ☠️")
+         await bot.send_message(rid, text=f"☠️ **Ur Message Rejected By {update.from_user.mention}** ☠️")
     elif update.data == "upd":
         await update.message.edit_text("Updating....")
         await update.answer(
