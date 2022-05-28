@@ -456,18 +456,20 @@ async def pm_media(bot, message):
     await message.reply_text(text="Ur Photo Sent To [MemeHub Telegram 🇱🇰 ](https://t.me/memehubTGSL) Admins", reply_markup=CLOSE_BUTTON)
     info = await bot.get_users(user_ids=message.from_user.id)
     reference_id = int(message.chat.id)
+    msg=message.caption
     await bot.copy_message(
         chat_id=1884885842,       
         from_chat_id=message.chat.id,
         message_id=message.id,
-        caption=PM_MED_ATT.format(reference_id, message.from_user.mention)
+        caption=PM_MED_ATT.format(reference_id, message.from_user.mention, msg)
     )
     reference_id = int(message.chat.id)
+    msg=message.caption
     await bot.copy_message(
         chat_id=-1001759991131,
         from_chat_id=message.chat.id,
         message_id=message.id,
-        caption=PM_MED_ATT.format(reference_id, message.from_user.mention),
+        caption=PM_MED_ATT.format(reference_id, message.from_user.mention, msg),
         reply_markup=InlineKeyboardMarkup([[
                  InlineKeyboardButton("✅ᴀᴄᴄᴇᴘᴛ", callback_data="acce"),
                  InlineKeyboardButton("❌ʀᴇᴊᴇᴄᴛ", callback_data="cloc")
