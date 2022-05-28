@@ -656,7 +656,8 @@ async def tgm(bot, update):
         await bot.copy_message(
         chat_id=-1001210985373,
         from_chat_id=-1001759991131,
-        message_id=update.message.id
+        message_id=update.message.id,
+        caption=f"{update.message.caption}\n\n<b>Accept By:</b>{update.from_user.mention}"
     )   
         await update.answer(
              text="✅ᴍᴇssᴀɢᴇ ᴀᴄᴄᴇᴘᴛᴇᴅ",
