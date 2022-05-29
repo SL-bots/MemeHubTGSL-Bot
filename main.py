@@ -240,18 +240,13 @@ async def on_off_antiarab(bot, message):
         return
     msg=message.reply_to_message
     f= message.text
-    s=f.replace('/carupd ' ,'')
+    s=f.replace('/carupd ' ,' ')
     photo=s.replace('%20', ' ')
     caption=f"""
  #UPDATE 
 
 **Update Available**
-`
-    ╔╦╗──╔╗──╔╗
-    ║║╠═╦╝╠═╗║╚╦═╗
-    ║║║╬║╬║╬╚╣╔╣╩╣
-    ╚═╣╔╩═╩══╩═╩═╝
-    ──╚╝`
+
     """
     await bot.send_photo(message.chat.id,photo=photo, caption=caption, reply_markup=InlineKeyboardMarkup([[              
                  InlineKeyboardButton('♻️ Updatate ♻️', callback_data="upd")
