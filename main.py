@@ -91,22 +91,7 @@ db = Database(DATABASE_URL, "Memehub_bot")
 
 @Client.on_message(filters.command("start"))
 async def startprivate(client, message):
-    if force_subchannel:
-        try:
-            user = await client.get_chat_member(force_subchannel, message.from_user.id)
-            if user.status == "kicked out":
-                await message.reply_text("Yourt Banned")
-                return 
-        except UserNotParticipant:
-            file_id = "CAADBQADOAcAAn_zKVSDCLfrLpxnhAI"
-            await client.send_sticker(message.chat.id, file_id)
-            text = FORCESUB_TEXT
-            reply_markup = FORCESUB_BUTTONS
-            await message.reply_text(
-            text=text,
-            reply_markup=reply_markup
-            ) 
-            return
+    #return
     chat_id = message.from_user.id
     if not await db.is_user_exist(chat_id):
         data = await client.get_me()
