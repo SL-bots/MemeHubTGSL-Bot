@@ -93,13 +93,13 @@ db = Database(DATABASE_URL, "Memehub_bot")
 async def startprivate(client, message):
     if force_subchannel:
         try:
-            user = await bot.get_chat_member(force_subchannel, message.from_user.id)
+            user = await client.get_chat_member(force_subchannel, message.from_user.id)
             if user.status == "kicked out":
                 await message.reply_text("Yourt Banned")
                 return 
         except UserNotParticipant:
             file_id = "CAADBQADOAcAAn_zKVSDCLfrLpxnhAI"
-            await bot.send_sticker(message.chat.id, file_id)
+            await client.send_sticker(message.chat.id, file_id)
             text = FORCESUB_TEXT
             reply_markup = FORCESUB_BUTTONS
             await message.reply_text(
