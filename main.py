@@ -655,7 +655,7 @@ async def tgm(bot, update):
     elif update.data == "acce":
         if update.from_user.id not in AUTH_USERS:
             await update.answer(
-                 text="❌ ʏᴏᴜ'ʀᴇ ɴᴏᴛ ʙᴏᴛ ᴀᴅᴍɪɴ ❌",
+                 text="U are Not Admin",
             ) 
             return
         info = await bot.get_users(user_ids=update.message.from_user.id)
@@ -665,17 +665,17 @@ async def tgm(bot, update):
         from_chat_id=-1001759991131,
         message_id=update.message.id,
         caption=f"{update.message.caption}\n\n<b>Accept By:</b>{update.from_user.mention}"
-    )   
+    )
         rid=update.message.caption.split()[2]
         file_id="CAADBAADBwkAAmAw-FKQ4jfoM0moPwI"
         await bot.send_sticker(rid, file_id)
         msg_id = process.id
         rid=update.message.caption.split()[2]
-        await bot.send_message(rid, text=f"[ᴛʜɪs](https://t.me/memehubTGSL/{msg_id}) ᴘᴏsᴛ ᴀᴄᴄᴇᴘᴛᴇᴅ", disable_web_page_preview=True)
+        await bot.send_message(rid, text=f"🎉 [ᴛʜɪs](https://t.me/memehubTGSL/{msg_id}) ᴘᴏsᴛ ᴀᴄᴄᴇᴘᴛᴇᴅ 🎉", disable_web_page_preview=True)
+        
         await update.answer(
              text="✅ᴍᴇssᴀɢᴇ ᴀᴄᴄᴇᴘᴛᴇᴅ",
-        ) 
-        await update.message.delete() 
+        )
     
 #--------------------------------------------------Inline------------------------------------------------#
 
