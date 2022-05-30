@@ -197,6 +197,9 @@ DEV_BTN = InlineKeyboardMarkup([[
                  ],
                  [
                  InlineKeyboardButton('𝕯𝖆𝖗𝖐 𝕰𝖒𝖕𝖎𝖗𝖊 🇱🇰🇸 🇱 🇧 🇴 🇹 🇸 ™', user_id="SL_BOTS_TM")
+                 ],
+                 [
+                 InlineKeyboardButton('𝘿𝙚𝙣𝙪𝙬𝙖𝙣 🇱🇰', user_id="ImDenuwan")
                  ]]
                   )
 
