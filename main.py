@@ -195,14 +195,14 @@ async def on_off_antiarab(bot, message):
     if message.from_user.id not in AUTH_USERS:
         await message.delete()
         return
-    msg=message.reply_to_message
-    f= message.text
-    s=f.replace('/carupd ' ,' ')
-    photo=s.replace('%20', ' ')
+    UPDT_NT=" ".join(message.command[2:])
+    photo=message.command[1]
     caption=f"""
  #UPDATE 
 
 **Update Available**
+
+{UPDT_NT}
 
     """
     await bot.send_photo(message.chat.id,photo=photo, caption=caption, reply_markup=InlineKeyboardMarkup([[              
