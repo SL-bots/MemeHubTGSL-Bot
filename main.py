@@ -607,20 +607,20 @@ async def tgm(bot, update):
              text="👻 ʜᴇᴍʟᴘ 👻",
          )
     elif update.data == "cloce":
-        if update.from_user.id not in AUTH_USERS:
-            await update.answer(
-                 text="❌ ʏᴏᴜ'ʀᴇ ɴᴏᴛ ʙᴏᴛ ᴀᴅᴍɪɴ ❌",
-            ) 
-            return
         await update.message.delete()
     elif update.data == "ref": 
         await update.answer(
              text="♻️Reloading.....♻️",
         ) 
     elif update.data == "cloc":
-         await update.message.delete()
-         rid=update.message.caption.split()[2]
-         await bot.send_message(rid, text=f"☠️ **Ur Message Rejected By {update.from_user.mention}** ☠️")
+        if update.from_user.id not in AUTH_USERS:
+            await update.answer(
+                 text="❌ ʏᴏᴜ'ʀᴇ ɴᴏᴛ ʙᴏᴛ ᴀᴅᴍɪɴ ❌",
+            ) 
+            return
+        await update.message.delete()
+        rid=update.message.caption.split()[2]
+        await bot.send_message(rid, text=f"☠️ **Ur Message Rejected By {update.from_user.mention}** ☠️")
     elif update.data == "upd":
         await update.message.edit_text("Updating....")
         await update.answer(
