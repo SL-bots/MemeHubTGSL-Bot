@@ -286,7 +286,7 @@ async def on_off_antiarab(bot, message):
 
 #----------------------------------------------main Cmds---------------------------------------------#
 
-@Client.on_message(filters.private &filters.command("send"))
+@Client.on_message(filters.command("send"))
 async def status(bot, message):
     if message.from_user.id not in AUTH_USERS:
         await message.delete()
