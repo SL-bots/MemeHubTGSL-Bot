@@ -666,6 +666,7 @@ async def tgm(bot, update):
         message_id=update.message.id,
         caption=f"{update.message.caption}\n\n<b>Accept By:</b>{update.from_user.mention}"
     )
+        await update.message.delete()
         rid=update.message.caption.split()[2]
         file_id="CAADBAADBwkAAmAw-FKQ4jfoM0moPwI"
         await bot.send_sticker(rid, file_id)
