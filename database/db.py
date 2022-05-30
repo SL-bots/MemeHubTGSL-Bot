@@ -61,3 +61,18 @@ class Database:
     async def get_all_banned_users(self):
             banned_users = self.col.find({"ban_status.is_banned": True})
             return banned_users
+    
+    async def set_notif(self, id, notif):
+        await self.col.update_one({"id": id}, {"$set": {"notif": notif}})
+
+    async def get_notif(self, id):
+        user = await self.col.find_one({"id": int(id)})
+        return user.get("notif", False)
+
+    async def get_all_notif_user(self):
+        notif_users = self.col.find({"notif": True})
+        return notif_users
+
+    async def total_notif_users_count(self):
+        count = await self.col.count_documents({"notif": True})
+        return 
