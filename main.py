@@ -115,13 +115,13 @@ async def startprivate(client, message):
         if -1001581011760:
             await client.send_message(
                 -1001581011760,
-                f"#NEWUSER: \n\nNew User [{message.from_user.mention}) started @{BOT_USERNAME} !!",
+                f"#NEWUSER: \n\nNew User [{message.from_user.first_name}](tg://user?id={message.from_user.id}) started @{BOT_USERNAME} !!",
             )
         else:
             logging.info(f"#NewUser :- Name : {message.from_user.first_name} ID : {message.from_user.id}")
     file_id = "CAADBQADVwYAAhCWAVRcksqpPVEWHAI"
     await client.send_sticker(message.chat.id, file_id, reply_markup=start_menu)
-    text = f"Hi {message.from_user.mention}, Welcome to  MemeHub Telegram 🇱🇰 Official Bot\n\n★彡 ʙᴏᴛ ʙʏ 彡★\n[◤ᴵᴬᴹǤΐรhaή ᴷʳⁱˢʰᵏᵃ◢ 『🇱🇰』](https://t.me/Imgishan)\n[unknown boy┊𝙰𝙻𝙿𝙷𝙰 么 ™](t.me/UnknownB_o_y)"
+    text = f"Hi {message.from_user.mention}, Welcome to  MemeHub Telegram 🇱🇰 Official Bot"
     reply_markup = START_BUTTON  
     await message.reply_text(
         text=text,
