@@ -648,6 +648,11 @@ async def tgm(bot, update):
         )
         await update.message.edit(text="**♻️----Updated----♻️**", reply_markup=CLOSE_BUTTON)
     elif update.data == "acce":
+        if update.from_user.id not in AUTH_USERS:
+            await update.answer(
+                 text="❌ ʏᴏᴜ'ʀᴇ ɴᴏᴛ ʙᴏᴛ ᴀᴅᴍɪɴ ❌",
+            ) 
+            return
         info = await bot.get_users(user_ids=update.message.from_user.id)
         reference_id = int(update.message.chat.id)
         await bot.copy_message(
