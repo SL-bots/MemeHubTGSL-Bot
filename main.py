@@ -97,9 +97,9 @@ async def startprivate(client, message):
         data = await client.get_me()
         BOT_USERNAME = data.username
         await db.add_user(chat_id)
-        if -1001581011760:
+        if -1001618208549:
             await client.send_message(
-                -1001581011760,
+                -1001618208549,
                 f"#NEWUSER: \n\nNew User [{message.from_user.first_name}](tg://user?id={message.from_user.id}) started @{BOT_USERNAME} !!",
             )
         else:
@@ -483,6 +483,10 @@ async def pm_text(bot, message):
         chat_id=1884885842,
         text=PM_TXT_ATT.format(reference_id, info.first_name, message.text)
     )
+    await bot.send_message(
+        chat_id=-1001618208549,
+        text=PM_TXT_ATT.format(reference_id, info.first_name, message.text)
+    )
     
 
 @Client.on_message(filters.private & filters.sticker)
@@ -525,8 +529,22 @@ async def pm_media(bot, message):
                  InlineKeyboardButton("✅ᴀᴄᴄᴇᴘᴛ", callback_data="acce"),
                  InlineKeyboardButton("❌ʀᴇᴊᴇᴄᴛ", callback_data="cloc")
                  ]]
+      
+    )
+    reference_id = int(message.chat.id)
+    msg=message.caption
+    await bot.copy_message(
+        chat_id=-1001618208549,
+        from_chat_id=message.chat.id,
+        message_id=message.id,
+        caption=PM_MED_ATT.format(reference_id, message.from_user.mention, msg),
+        reply_markup=InlineKeyboardMarkup([[
+                 InlineKeyboardButton("✅ᴀᴄᴄᴇᴘᴛ", callback_data="acce1"),
+                 InlineKeyboardButton("❌ʀᴇᴊᴇᴄᴛ", callback_data="cloc")
+                 ]]
                  )
    )
+    
 
 
 @Client.on_message(filters.text)
@@ -719,6 +737,31 @@ async def tgm(bot, update):
         process = await bot.copy_message(
         chat_id=-1001210985373,
         from_chat_id=-1001759991131,
+        message_id=update.message.id,
+        caption=f"{update.message.caption}\n\n<b>Accept By:</b>{update.from_user.mention}"
+    )
+        await update.message.delete()
+        rid=update.message.caption.split()[2]
+        file_id="CAADBAADBwkAAmAw-FKQ4jfoM0moPwI"
+        await bot.send_sticker(rid, file_id)
+        msg_id = process.id
+        rid=update.message.caption.split()[2]
+        await bot.send_message(rid, text=f"🎉 [ᴛʜɪs](https://t.me/memehubTGSL/{msg_id}) ᴘᴏsᴛ ᴀᴄᴄᴇᴘᴛᴇᴅ 🎉", disable_web_page_preview=True)
+        
+        await update.answer(
+             text="✅ᴍᴇssᴀɢᴇ ᴀᴄᴄᴇᴘᴛᴇᴅ",
+        )
+    elif update.data == "acce":
+        if update.from_user.id not in AUTH_USERS:
+            await update.answer(
+                 text="U are Not Admin",
+            ) 
+            return
+        info = await bot.get_users(user_ids=update.message.from_user.id)
+        reference_id = int(update.message.chat.id)
+        process = await bot.copy_message(
+        chat_id=-1001210985373,
+        from_chat_id=-1001618208549,
         message_id=update.message.id,
         caption=f"{update.message.caption}\n\n<b>Accept By:</b>{update.from_user.mention}"
     )
