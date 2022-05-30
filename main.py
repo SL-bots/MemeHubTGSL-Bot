@@ -752,7 +752,7 @@ async def tgm(bot, update):
         await update.answer(
              text="✅ᴍᴇssᴀɢᴇ ᴀᴄᴄᴇᴘᴛᴇᴅ",
         )
-    elif update.data == "acce":
+    elif update.data == "acce1":
         if update.from_user.id not in AUTH_USERS:
             await update.answer(
                  text="U are Not Admin",
