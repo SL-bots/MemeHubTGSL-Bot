@@ -23,7 +23,7 @@ from pyrogram.errors import *
 from pyrogram.types import *
 from decorators import humanbytes
 from config import *
-from database.db impord Database
+from database.db import Database
 
 #--------------------------------------------------Db-------------------------------------------------#
 
