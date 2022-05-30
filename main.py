@@ -607,7 +607,12 @@ async def tgm(bot, update):
              text="👻 ʜᴇᴍʟᴘ 👻",
          )
     elif update.data == "cloce":
-         await update.message.delete()
+        if update.from_user.id not in AUTH_USERS:
+            await update.answer(
+                 text="❌ ʏᴏᴜ'ʀᴇ ɴᴏᴛ ʙᴏᴛ ᴀᴅᴍɪɴ ❌",
+            ) 
+            return
+        await update.message.delete()
     elif update.data == "ref": 
         await update.answer(
              text="♻️Reloading.....♻️",
