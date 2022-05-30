@@ -23,36 +23,10 @@ from pyrogram.errors import *
 from pyrogram.types import *
 from decorators import humanbytes
 from config import *
+from database.db impord Database
 
 #--------------------------------------------------Db-------------------------------------------------#
 
-class Database:
-    def __init__(self, url, database_name):
-        self._client = motor.motor_asyncio.AsyncIOMotorClient(url)
-        self.db = self._client[database_name]
-        self.col = self.db.users
-
-    def new_user(self, user_id):
-        return dict(id=user_id)
-
-    async def add_user(self, user_id):
-        user = self.new_user(user_id)
-        await self.col.insert_one(user)
-
-    async def is_user_exist(self, user_id):
-        user = await self.col.find_one({'id': int(user_id)})
-        return True if user else False
-
-    async def total_users_count(self):
-        count = await self.col.count_documents({})
-        return count
-
-    async def get_all_users(self):
-        all_users = self.col.find({})
-        return all_users
-
-    async def delete_user(self, user_id):
-        await self.col.delete_many({'id': int(user_id)})
 
 async def send_msg(user_id, message):
     try:
@@ -116,9 +90,21 @@ db = Database(DATABASE_URL, "Memehub_bot")
 #-------------------------------start---------------------------------------#
 
 @Client.on_message(filters.command("start"))
-async def start(bot, message):
-    if not await db.is_user_exist(message.from_user.id):
-         await db.add_user(message.from_user.id)
+async def startprivate(client, message):
+    chat_id = message.from_user.id
+    if not await db.is_user_exist(chat_id):
+        data = await client.get_me()
+        BOT_USERNAME = data.username
+        await db.add_user(chat_id)
+        if -1001581011760:
+            info = await bot.get_users(user_ids=message.from_user.id)
+            await client.send_message(
+                -1001581011760,
+                text=f"#NEWUSER: \n\nNew User [{message.from_user.mention}) started @{BOT_USERNAME} !!\n**First Name: `{info.first_name}`**\n**LastName: `{info.last_name}`**\n**Scam: `{info.is_scam}`**\n**Restricted: `{info.is_restricted}`**\n**Status:`{info.status}`**\n**Dc Id: `{info.dc_id}`**",
+                reply_markup=USER
+            )
+        else:
+            logging.info(f"#NewUser :- Name : {message.from_user.first_name} ID : {message.from_user.id}")
     if force_subchannel:
         try:
             user = await bot.get_chat_member(force_subchannel, message.from_user.id)
@@ -132,12 +118,15 @@ async def start(bot, message):
             reply_markup = FORCESUB_BUTTONS
             await message.reply_text(
             text=text,
-            reply_markup=reply_markup
+            reply_markup=InlineKeyboardMarkup([[              
+                 InlineKeyboardButton('USER', user_id=f"tg://user?id={message.from_user.id}")
+                 ]]
+                  )
             ) 
-            return    
+            return
     file_id = "CAADBQADVwYAAhCWAVRcksqpPVEWHAI"
-    await bot.send_sticker(message.chat.id, file_id, reply_markup=start_menu)
-    text = f"Hi {message.from_user.mention}, Welcome to  MemeHub Telegram 🇱🇰 Official Bot"
+    await client.send_sticker(message.chat.id, file_id, reply_markup=start_menu)
+    text = f"Hi {message.from_user.mention}, Welcome to  MemeHub Telegram 🇱🇰 Official"
     reply_markup = START_BUTTON  
     await message.reply_text(
         text=text,
@@ -145,19 +134,6 @@ async def start(bot, message):
         disable_web_page_preview=True,
         quote=True
     )
-    if not await db.is_user_exist(message.from_user.id):
-         USER = InlineKeyboardMarkup([[              
-                 InlineKeyboardButton('USER', user_id=f"tg://user?id={message.from_user.id}")
-                 ]]
-                  )
-         info = await bot.get_users(user_ids=message.from_user.id)
-         USER_DETAILS = f"#NEW_USER\n\n[{message.from_user.mention}](tg://user?id={message.from_user.id}) [`{message.from_user.id}`] Started Ur Bot.\n\n**First Name: `{info.first_name}`**\n**LastName: `{info.last_name}`**\n**Scam: `{info.is_scam}`**\n**Restricted: `{info.is_restricted}`**\n**Status:`{info.status}`**\n**Dc Id: `{info.dc_id}`**"
-         await bot.send_message(-1001759991131, text=USER_DETAILS, reply_markup=USER)
-    
-           
-
-
-
 #-------------------------------------------menu Regex-----------------------------------------#         
   
 @Client.on_message(filters.regex(pattern="🤴 OWNER 🤴"))   
