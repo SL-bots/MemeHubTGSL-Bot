@@ -31,13 +31,15 @@ CONTRIBUTIONS AND SUGGESTIONS ARE WELCOME !!
 * ### Thanks to
    - Dan for [Pyrogram](https://github.com/Pyrogram)
 * ### OWNERS
-   - [◤ᴵᴬᴹǤΐรhaή ᴷʳⁱˢʰᵏᵃ◢ 『🇱🇰』 ⁪⁬⁮⁮⁮𝙍𝙖𝙟𝙖𝙥𝙖𝙠𝙨𝙝𝙖](https://github.com/Gishankrishka2) ``Owner``
+   - [◤ᴵᴬᴹǤΐรhaή ᴷʳⁱˢʰᵏᵃ◢ 『🇱🇰』 ⁪⁬⁮⁮⁮𝙍𝙖𝙟𝙖𝙥𝙖𝙠𝙨𝙝𝙖](https://github.com/Gishankrishka2) 
 
-   - [𝕯𝖆𝖗𝖐 𝕰𝖒𝖕𝖎𝖗𝖊](https://github.com/DARKEMPIRESL) ``Owner``
+   - [𝕯𝖆𝖗𝖐 𝕰𝖒𝖕𝖎𝖗𝖊](https://github.com/DARKEMPIRESL) 
 
-   - [unknown boy┊𝙰𝙻𝙿𝙷𝙰 么 ™](https://github.com/tkalum) ``owner``
+   - [unknown boy┊𝙰𝙻𝙿𝙷𝙰 么 ™](https://github.com/tkalum) 
   
-   - [Tharuk Renuja](github.com/TharukRenuja) ``Owner``
+   - [Tharuk Renuja](github.com/TharukRenuja)
+
+   - [𝘿𝙚𝙣𝙪𝙬𝙖𝙣 🇱🇰](github.com/imdenuwan)
 
 # Contributors
 ![GitHub Contributors Image](https://contrib.rocks/image?repo=imGishan/Memehubtgsl_bot)
