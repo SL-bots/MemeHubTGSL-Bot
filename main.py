@@ -666,6 +666,9 @@ async def tgm(bot, update):
         message_id=update.message.id,
         caption=f"{update.message.caption}\n\n<b>Accept By:</b>{update.from_user.mention}"
     )   
+        msg_id = process.id
+        rid=update.message.caption.split()[2]
+        await bot.send_message(rid, text=f"[ᴛʜɪs](https://t.me/memehubTGSL/{msg_id}) ᴘᴏsᴛ ᴀᴄᴄᴇᴘᴛᴇᴅ", disable_web_page_preview=True)
         await update.answer(
              text="✅ᴍᴇssᴀɢᴇ ᴀᴄᴄᴇᴘᴛᴇᴅ",
         ) 
