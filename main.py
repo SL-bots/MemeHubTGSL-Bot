@@ -91,29 +91,14 @@ db = Database(DATABASE_URL, "Memehub_bot")
 
 @Client.on_message(filters.command("start"))
 async def startprivate(client, message):
-    chat_id = message.from_user.id
-    if not await db.is_user_exist(chat_id):
-        data = await client.get_me()
-        BOT_USERNAME = data.username
-        await db.add_user(chat_id)
-        if -1001759991131:
-            info = await bot.get_users(user_ids=message.from_user.id)
-            await client.send_message(
-                -1001759991131,
-                text=f"#NEWUSER: \n\nNew User [{message.from_user.mention}) started @{BOT_USERNAME} !!\n**First Name: `{info.first_name}`**\n**LastName: `{info.last_name}`**\n**Scam: `{info.is_scam}`**\n**Restricted: `{info.is_restricted}`**\n**Status:`{info.status}`**\n**Dc Id: `{info.dc_id}`**",
-                reply_markup=USER
-            )
-        else:
-            logging.info(f"#NewUser :- Name : {message.from_user.first_name} ID : {message.from_user.id}")
-    if force_subchannel:
-        try:
-            user = await bot.get_chat_member(force_subchannel, message.from_user.id)
+    try:
+            user = await client.get_chat_member(force_subchannel, message.from_user.id)
             if user.status == "kicked out":
                 await message.reply_text("Yourt Banned")
                 return 
         except UserNotParticipant:
             file_id = "CAADBQADOAcAAn_zKVSDCLfrLpxnhAI"
-            await bot.send_sticker(message.chat.id, file_id)
+            await client.send_sticker(message.chat.id, file_id)
             text = FORCESUB_TEXT
             reply_markup = FORCESUB_BUTTONS
             await message.reply_text(
@@ -124,9 +109,21 @@ async def startprivate(client, message):
                   )
             ) 
             return
+    chat_id = message.from_user.id
+    if not await db.is_user_exist(chat_id):
+        data = await client.get_me()
+        BOT_USERNAME = data.username
+        await db.add_user(chat_id)
+        if -1001581011760:
+            await client.send_message(
+                -1001581011760,
+                f"#NEWUSER: \n\nNew User [{message.from_user.mention}) started @{BOT_USERNAME} !!",
+            )
+        else:
+            logging.info(f"#NewUser :- Name : {message.from_user.first_name} ID : {message.from_user.id}")
     file_id = "CAADBQADVwYAAhCWAVRcksqpPVEWHAI"
     await client.send_sticker(message.chat.id, file_id, reply_markup=start_menu)
-    text = f"Hi {message.from_user.mention}, Welcome to  MemeHub Telegram 🇱🇰 Official"
+    text = f"Hi {message.from_user.mention}, Welcome to  MemeHub Telegram 🇱🇰 Official Bot\n\n★彡 ʙᴏᴛ ʙʏ 彡★\n[◤ᴵᴬᴹǤΐรhaή ᴷʳⁱˢʰᵏᵃ◢ 『🇱🇰』](https://t.me/Imgishan)\n[unknown boy┊𝙰𝙻𝙿𝙷𝙰 么 ™](t.me/UnknownB_o_y)"
     reply_markup = START_BUTTON  
     await message.reply_text(
         text=text,
@@ -134,6 +131,7 @@ async def startprivate(client, message):
         disable_web_page_preview=True,
         quote=True
     )
+        
 #-------------------------------------------menu Regex-----------------------------------------#         
   
 @Client.on_message(filters.regex(pattern="🤴 OWNER 🤴"))   
