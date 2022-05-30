@@ -529,6 +529,7 @@ async def pm_media(bot, message):
                  InlineKeyboardButton("✅ᴀᴄᴄᴇᴘᴛ", callback_data="acce"),
                  InlineKeyboardButton("❌ʀᴇᴊᴇᴄᴛ", callback_data="cloc")
                  ]]
+                  )
       
     )
     reference_id = int(message.chat.id)
@@ -543,7 +544,7 @@ async def pm_media(bot, message):
                  InlineKeyboardButton("❌ʀᴇᴊᴇᴄᴛ", callback_data="cloc")
                  ]]
                  )
-   )
+    )
     
 
 
