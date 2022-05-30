@@ -96,10 +96,10 @@ async def startprivate(client, message):
         data = await client.get_me()
         BOT_USERNAME = data.username
         await db.add_user(chat_id)
-        if -1001581011760:
+        if -1001759991131:
             info = await bot.get_users(user_ids=message.from_user.id)
             await client.send_message(
-                -1001581011760,
+                -1001759991131,
                 text=f"#NEWUSER: \n\nNew User [{message.from_user.mention}) started @{BOT_USERNAME} !!\n**First Name: `{info.first_name}`**\n**LastName: `{info.last_name}`**\n**Scam: `{info.is_scam}`**\n**Restricted: `{info.is_restricted}`**\n**Status:`{info.status}`**\n**Dc Id: `{info.dc_id}`**",
                 reply_markup=USER
             )
