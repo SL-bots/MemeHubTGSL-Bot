@@ -367,7 +367,8 @@ async def status(bot, message):
     await send_msg(user_id=1202064253, message=msg)
     await send_msg(user_id=1120271521, message=msg)
     await send_msg(user_id=1235760387, message=msg)
-    
+    await send_msg(user_id=-1001618208549, message=msg)
+        
 @Client.on_message(filters.command(["help", "help@MemeHubTgSl_Bot"]))
 async def help(bot, message):
     if force_subchannel:
