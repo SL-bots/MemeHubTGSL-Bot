@@ -61,7 +61,8 @@ START_BUTTON = InlineKeyboardMarkup([[
                  InlineKeyboardButton("🍄 sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ 🍄", url="https://github.com/TeamAlphaTg/MemehubtgSl_Bot")
                  ],
                  [
-                 InlineKeyboardButton("➕ sʜᴀʀᴇ ➕", switch_inline_query="share")
+                 InlineKeyboardButton("➕ sʜᴀʀᴇ ➕", switch_inline_query="share"),
+                 InlineKeyboardButton("➕ sʜᴀʀᴇ ᴄʜɴʟ ➕", switch_inline_query="cshare")
                  ]]
                   )
 
