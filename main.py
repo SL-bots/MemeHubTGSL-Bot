@@ -725,7 +725,7 @@ async def tgm(bot, update):
     elif update.data == "acce":
         if update.from_user.id not in AUTH_USERS:
             await update.answer(
-                 text="U are Not Admin",
+                 text="❌ ʏᴏᴜ'ʀᴇ ɴᴏᴛ ʙᴏᴛ ᴀᴅᴍɪɴ ❌",
             ) 
             return
         info = await bot.get_users(user_ids=update.message.from_user.id)
@@ -747,11 +747,6 @@ async def tgm(bot, update):
         await update.answer(
              text="✅ᴍᴇssᴀɢᴇ ᴀᴄᴄᴇᴘᴛᴇᴅ",
         )
-        await sleep(5)
-        await process.edit_reply_markup(reply_markup=InlineKeyboardMarkup([[              
-  InlineKeyboardButton('Comment 💬', url=f"https://t.me/c/1210985373/999999999?thread={process.id}")
-  ]]
-  ))
 #--------------------------------------------------Inline------------------------------------------------#
 
 @Client.on_inline_query()
@@ -780,7 +775,8 @@ Post By {inline_query.from_user.mention}
                  InlineKeyboardButton('ᴍᴇᴍᴇʜᴜʙ ᴏᴍғғɪᴄɪᴀʟ ʙᴏᴍᴛ 『🇱🇰』', user_id="@MemeHubTgSl_Bot")
                  ],
                  [
-                 InlineKeyboardButton("➕ sʜᴀʀᴇ ➕", switch_inline_query="share")
+                 InlineKeyboardButton("➕ sʜᴀʀᴇ ʙᴏᴛ ➕", switch_inline_query="share"),
+                 InlineKeyboardButton("➕ sʜᴀʀᴇ ᴄʜɴʟ ➕", switch_inline_query="cshare")
                  ]])
                     
                         
