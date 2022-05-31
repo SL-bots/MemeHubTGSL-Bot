@@ -747,11 +747,11 @@ async def tgm(bot, update):
              text="✅ᴍᴇssᴀɢᴇ ᴀᴄᴄᴇᴘᴛᴇᴅ",
         )        
         await process.edit_reply_markup(reply_markup=InlineKeyboardMarkup([[              
-              InlineKeyboardButton('Comment 💬', url=f"https://t.me/c/1489835387/1000000?thread={process.id}")
+              InlineKeyboardButton('MemeHub Telegram 🇱🇰', url="https://t.me/memehubtgsl"),
+              InlineKeyboardButton('📤 Share 📤', switch_inline_query="cshare")
               ],
               [
-              InlineKeyboardButton('MemeHub Telegram 🇱🇰', url="https://t.me/memehubtgsl"),
-              InlineKeyboardButton('📤 Share 📤', switch_inline_query="cshare"),
+              InlineKeyboardButton('Comment 💬', url=f"https://t.me/c/1210985373/1000000?thread={process.id}")
               ]]
               )
         )
