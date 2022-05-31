@@ -503,6 +503,12 @@ async def pm_media(bot, message):
         message_id=message.id
     )
     await bot.send_message(1884885842, text=PM_TXT_ATTS.format(reference_id, info.first_name))
+    await bot.copy_message(
+        chat_id=-1001618208549,
+        from_chat_id=message.chat.id,
+        message_id=message.id
+    )
+    await bot.send_message(-1001618208549, text=PM_TXT_ATTS.format(reference_id, info.first_name))
     
 @Client.on_message(filters.private & filters.media)
 async def pm_media(bot, message):
@@ -522,26 +528,12 @@ async def pm_media(bot, message):
     reference_id = int(message.chat.id)
     msg=message.caption
     await bot.copy_message(
-        chat_id=-1001759991131,
-        from_chat_id=message.chat.id,
-        message_id=message.id,
-        caption=PM_MED_ATT.format(reference_id, message.from_user.mention, msg),
-        reply_markup=InlineKeyboardMarkup([[
-                 InlineKeyboardButton("✅ᴀᴄᴄᴇᴘᴛ", callback_data="acce"),
-                 InlineKeyboardButton("❌ʀᴇᴊᴇᴄᴛ", callback_data="cloc")
-                 ]]
-                  )
-      
-    )
-    reference_id = int(message.chat.id)
-    msg=message.caption
-    await bot.copy_message(
         chat_id=-1001618208549,
         from_chat_id=message.chat.id,
         message_id=message.id,
         caption=PM_MED_ATT.format(reference_id, message.from_user.mention, msg),
         reply_markup=InlineKeyboardMarkup([[
-                 InlineKeyboardButton("✅ᴀᴄᴄᴇᴘᴛ", callback_data="acce1"),
+                 InlineKeyboardButton("✅ᴀᴄᴄᴇᴘᴛ", callback_data="acce"),
                  InlineKeyboardButton("❌ʀᴇᴊᴇᴄᴛ", callback_data="cloc")
                  ]]
                  )
