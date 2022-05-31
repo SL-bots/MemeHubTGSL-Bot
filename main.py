@@ -745,11 +745,15 @@ async def tgm(bot, update):
         
         await update.answer(
              text="✅ᴍᴇssᴀɢᴇ ᴀᴄᴄᴇᴘᴛᴇᴅ",
-        )
-        id =await bot.get_chat(-1001210985373)
-        mid = str(id.id)[4:]        
+        )    
+        id=await bot.get_chat(-1001210985373)
+        mid=str(id.id)[4:]        
         await process.edit_reply_markup(reply_markup=InlineKeyboardMarkup([[              
-              InlineKeyboardButton('Comment 💬', url=f"https://t.me/c/1210985373/1000000?thread={process.id}")
+              InlineKeyboardButton('Comment 💬', url=f"https://t.me/c/{mid}/1000000?thread={process.id}")
+              ],
+              [
+              InlineKeyboardButton('MemeHub Telegram 🇱🇰', url="https://t.me/memehubtgsl"),
+              InlineKeyboardButton('📤 Share 📤', switch_inline_query="cshare")
               ]]
               )
         )
