@@ -556,7 +556,7 @@ async def reply_text(bot, message):
         except Exception:
             pass
         await bot.send_message(
-            text=message.text,
+            text=f"**Msg From**:{message.from_user.mention}\n\n{message.text}",
             chat_id=int(reference_id)
         )
 
@@ -746,7 +746,17 @@ async def tgm(bot, update):
         await update.answer(
              text="✅ᴍᴇssᴀɢᴇ ᴀᴄᴄᴇᴘᴛᴇᴅ",
         )
-    
+        id =await bot.get_chat(-1001581011760)
+        mid = str(id.id)[4:]        
+        await process.edit_reply_markup(reply_markup=InlineKeyboardMarkup([[              
+              InlineKeyboardButton('Comment 💬', url=f"https://t.me/c/{mid}/1000000?thread={process.id}")
+              ],
+              [
+              InlineKeyboardButton('MemeHub Telegram 🇱🇰', url="https://t.me/memehubtgsl"),
+              InlineKeyboardButton('📤 Share 📤', switch_inline_query="cshare"),
+              ]]
+              )
+        )
 #--------------------------------------------------Inline------------------------------------------------#
 
 @Client.on_inline_query()
@@ -784,6 +794,42 @@ Post By {inline_query.from_user.mention}
             ],
             cache_time=1
         ) 
+   if inline_query.query=='cshare':
+        await inline_query.answer(
+            results=[
+                InlineQueryResultPhoto(
+                    title="Share Karapam",
+                    photo_url="https://telegra.ph/file/0d8bea3ba328d25ac491a.jpg",
+                    caption=f"""
+අපි තමා Telegram වල හොඳටම කරලා තියෙන්නේ...😎❤️
+
+මේ අර්බුදය අප ඇඩ්මින්ලා විසින් නිර්මාණය කරන ලද්දක් නොවන බව සිහියේ තබාගන්න...🥲💔
+
+සමාවෙන්න මට වැරදුනා...🥺😂
+
+Capa one nm join wenna 😈❤️
+
+**Post by**: {inline_query.from_user.mention}
+""",
+                    reply_markup=InlineKeyboardMarkup([[              
+                 InlineKeyboardButton('MemeHub Telegram 🇱🇰', url="t.me/Memehubtgsl")
+                 ],
+                 [
+                 InlineKeyboardButton('Owner 👑', user_id="@N_Abeysinghe_2001")
+                 ],
+                 [
+                 InlineKeyboardButton('Official Bot🤖', user_id="@MemeHubTgSl_Bot")
+                 ],
+                 [
+                 InlineKeyboardButton("⚜️Special Entrance⚜️", url="https://t.me/+9lM0dqLZviI1ZWZl")
+                 ]])
+                    
+                        
+                     
+            ),
+            ],
+            cache_time=1
+        )     
         
 
 print(" Deployed Successfully !")        
