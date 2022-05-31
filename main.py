@@ -24,6 +24,7 @@ from pyrogram.types import *
 from decorators import humanbytes
 from config import *
 from database.db import Database
+from asyncio import *
 
 #--------------------------------------------------Db-------------------------------------------------#
 
@@ -745,16 +746,12 @@ async def tgm(bot, update):
         
         await update.answer(
              text="✅ᴍᴇssᴀɢᴇ ᴀᴄᴄᴇᴘᴛᴇᴅ",
-        )        
-        await process.edit_reply_markup(reply_markup=InlineKeyboardMarkup([[              
-              InlineKeyboardButton('Comment 💬', url=f"https://t.me/c/1210985373/999999999?thread={process.id}")
-              ],
-              [
-              InlineKeyboardButton('MemeHub Telegram 🇱🇰', url="https://t.me/memehubtgsl"),
-              InlineKeyboardButton('මීම්හබ් කොල්ලො කෙල්ලො', url="https://t.me/memehubtgsl_chat")
-              ]]
-              )
         )
+        await sleep(5)
+        await process.edit_reply_markup(reply_markup=InlineKeyboardMarkup([[              
+  InlineKeyboardButton('Comment 💬', url=f"https://t.me/c/1210985373/999999999?thread={process.id}")
+  ]]
+  ))
 #--------------------------------------------------Inline------------------------------------------------#
 
 @Client.on_inline_query()
