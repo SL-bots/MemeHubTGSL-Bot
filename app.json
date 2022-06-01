@@ -20,9 +20,16 @@
             "description": "mongo URL, Get it from mongodb.com",
             "value": ""
         },
-        
         "AUTH_USERS": {
             "description": "Sudo User ids",
+            "value": ""
+        },
+        "HEROKU_API_KEY": {
+            "description": "Ur HEROKU_API fromm https://dashboard.heroku.com/account",
+            "value": ""
+        },
+        "HEROKU_APP_NAME": {
+            "description": "This App Name",
             "value": ""
         },
         "API_HASH": {
