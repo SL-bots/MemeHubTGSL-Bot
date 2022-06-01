@@ -19,3 +19,4 @@ aiofiles
 dnspython
 python-dotenv
 psutil
+heroku3
