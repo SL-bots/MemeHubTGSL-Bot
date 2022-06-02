@@ -46,4 +46,4 @@ CONTRIBUTIONS AND SUGGESTIONS ARE WELCOME !!
    - [𝘿𝙚𝙣𝙪𝙬𝙖𝙣 🇱🇰](github.com/imdenuwan)
 
 # Contributors
-![GitHub Contributors Image](https://contrib.rocks/image?repo=imGishan/Memehubtgsl_bot)
+![GitHub Contributors Image](https://contrib.rocks/image?repo=SL-bots/MemeHubTGSL-Bot)
