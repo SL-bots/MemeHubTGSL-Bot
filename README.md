@@ -29,12 +29,14 @@
 CONTRIBUTIONS AND SUGGESTIONS ARE WELCOME !!
 
 
-* ### Support
-   - [Team SL Bots Chat🇰](https://t.me/SLBotsChat)
+### Support
+   - [Team SL Bots Chat](https://t.me/SLBotsChat)
 
-* ### Thanks to
+### Thanks to
    - Dan for [Pyrogram](https://github.com/Pyrogram)
-* ### OWNERS
+
+
+### OWNERS
    - [◤ᴵᴬᴹǤΐรhaή ᴷʳⁱˢʰᵏᵃ◢ 『🇱🇰』 ⁪⁬⁮⁮⁮𝙍𝙖𝙟𝙖𝙥𝙖𝙠𝙨𝙝𝙖](https://github.com/Gishankrishka2) 
 
    - [𝕯𝖆𝖗𝖐 𝕰𝖒𝖕𝖎𝖗𝖊](https://github.com/DARKEMPIRESL) 
@@ -45,5 +47,5 @@ CONTRIBUTIONS AND SUGGESTIONS ARE WELCOME !!
 
    - [𝘿𝙚𝙣𝙪𝙬𝙖𝙣 🇱🇰](github.com/imdenuwan)
 
-## Contributors
+#### Contributors
 ![GitHub Contributors Image](https://contrib.rocks/image?repo=SL-bots/MemeHubTGSL-Bot) 
