@@ -30,7 +30,7 @@ CONTRIBUTIONS AND SUGGESTIONS ARE WELCOME !!
 
 
 * ### Support
-   - [@TR TECH GUIDE](https://t.me/trtechguide)
+   - [Team SL Bots Chat🇰](https://t.me/SLBotsChat)
 
 * ### Thanks to
    - Dan for [Pyrogram](https://github.com/Pyrogram)
