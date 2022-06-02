@@ -21,7 +21,7 @@ from pyrogram.errors import *
 from pyrogram import Client, filters
 from pyrogram.errors import *
 from pyrogram.types import *
-from decorators import humanbytes
+from helper.decorators import humanbytes
 from config import *
 from database.db import Database
 from asyncio import *
