@@ -12,6 +12,10 @@
 ## Features for Owner
 - `broadcast`
 - `Stats`
+- `ban users`
+- `unban users`
+- `list banned users`
+- 
 - Detailed Info - [Click Here](https://telegra.ph/Owner-Commands-05-19-11)
 
 ## Needed Vars
