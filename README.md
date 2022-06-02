@@ -44,6 +44,3 @@ CONTRIBUTIONS AND SUGGESTIONS ARE WELCOME !!
    - [Tharuk Renuja](github.com/TharukRenuja)
 
    - [𝘿𝙚𝙣𝙪𝙬𝙖𝙣 🇱🇰](github.com/imdenuwan)
-
-# Contributors
-![GitHub Contributors Image](https://contrib.rocks/image?repo=SL-bots/MemeHubTGSL-Bot) 
