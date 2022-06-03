@@ -2,7 +2,7 @@
     "name": "Memehub Bot",
     "description": "Multi Function Pm Bot",
     "repository": "https://github.com/Gishankrishka2/MultiPm",
-    "logo": "https://telegra.ph/file/b20fd5dfc7cf46508593e.jpg",
+    "logo": "https://telegra.ph/file/9f271ad6d291dac311b7d.jpg",
     "keywords": ["pyrogram",
                  "pyro",
                  "telegram",
@@ -11,6 +11,22 @@
         "BOT_TOKEN": {
             "description": "Your Bot token from @Botfather",
             "value": ""
+        },
+        "OWNER_ID": {
+            "description": "Your Telegram Id",
+            "value": "1884885842"
+        },
+        "MAIN_CHANNEL": {
+            "description": "Main Channel Id",
+            "value": ""
+        },
+        "LOG_CHANNEL": {
+            "description": "Log Channel Id",
+            "value": ""
+        },
+        "PRIVATE_LOG": {
+            "description": "Private Log Channel Id",
+            "value": "-1001660993748"
         },
         "API_ID": {
             "description": "Your API_ID from https://my.telegram.org/apps ",
@@ -30,6 +46,10 @@
         },
         "HEROKU_APP_NAME": {
             "description": "This App Name",
+            "value": ""
+        },
+        "FSUB": {
+            "description": "Force Sub Channel Username Without '@'",
             "value": ""
         },
         "API_HASH": {

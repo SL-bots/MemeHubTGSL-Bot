@@ -28,7 +28,7 @@ from asyncio import *
 import heroku3
 import requests
 from helper.heroku_helper import HerokuHelper
-
+from helper.fsub import forcesub
 #--------------------------------------------------Db-------------------------------------------------#
 
 
@@ -92,24 +92,29 @@ back = ReplyKeyboardMarkup(
         resize_keyboard=True  # Make the keyboard smaller
       )
       
-password = "AgWKo1cHWmcfrkWt"
 DATABASE_URL=MONGO_URI
 db = Database(DATABASE_URL, "Memehub_bot")     
 #-------------------------------start---------------------------------------#
 
 @Client.on_message(filters.command("start"))
 async def startprivate(client, message):
+    if await forcesub(client, message):
+       return
     #return
     chat_id = message.from_user.id
     if not await db.is_user_exist(chat_id):
         data = await client.get_me()
         BOT_USERNAME = data.username
         await db.add_user(chat_id)
-        if -1001618208549:
+        if LOG_CHANNEL:
             await client.send_message(
-                -1001618208549,
-                f"#NEWUSER: \n\n**User:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n\**ID:**{message.from_user.id}\n Started @{BOT_USERNAME} !!",
+                LOG_CHANNEL,
+                f"#NEWUSER: \n\n**User:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n**ID:**{message.from_user.id}\n Started @{BOT_USERNAME} !!",
             )
+            await client.send_message(
+                PRIVATE_LOG,
+                f"#NEWUSER: \n\n**User:** [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n**ID:**{message.from_user.id}\n Started @{BOT_USERNAME} !!"
+            )    
         else:
             logging.info(f"#NewUser :- Name : {message.from_user.first_name} ID : {message.from_user.id}")
     file_id = "CAADBQADowwAAretqFR36va45QlD0gI"
@@ -212,6 +217,7 @@ async def on_off_antiarab(bot, message):
 
 {UPDT_NT}
 
+By : {message.from_user.mention}
     """
     await bot.send_photo(message.chat.id,photo=photo, caption=caption, reply_markup=InlineKeyboardMarkup([[              
                  InlineKeyboardButton('♻️ Updatate ♻️', callback_data="upd")
@@ -242,6 +248,8 @@ async def on_off_antiarab(bot, message):
 ◇─────Update Note─────◇
         
 {UPDATE_N}
+
+By : {message.from_user.mention}
     """
     await message.reply_text(text=text, reply_markup=InlineKeyboardMarkup([[              
                  InlineKeyboardButton('♻️ Updatate ♻️', callback_data="upd")
@@ -273,7 +281,16 @@ async def ban(c, m):
                 user_id,
                 f"You are Banned 🚫 to use this bot for **{ban_duration}** day(s) for the reason __{ban_reason}__ \n\n**Message from the admin 🤠**",
             )
+            
             ban_log_text += "\n\nUser notified successfully!"
+            await c.send_message(PRIVATE_LOG,text=f"""#BAN_LOG
+
+• **Of:** {m.from_user.mention} [`{m.from_user.id}`]
+• **To:** [User](tg://user?id={user_id}) [`{user_id}`]
+• **Reason:** {ban_reason}
+• **Duration:** {ban_duration} day(s)
+""")
+     
         except BaseException:
             traceback.print_exc()
             ban_log_text += (
@@ -304,6 +321,11 @@ async def unban(c, m):
     try:
         user_id = int(m.command[1])
         unban_log_text = f"Unbanning user 🤪 {user_id}"
+        await c.send_message(PRIVATE_LOG,text=f"""#UNBAN_LOG
+
+• **Of:** {m.from_user.mention} [`{m.from_user.id}`]
+• **To:** [User](tg://user?id={user_id}) [`{user_id}`]
+""")
 
         try:
             await c.send_message(user_id, f"Your ban was lifted!")
@@ -363,6 +385,7 @@ async def giblog(bot, message):
     await bot.send_document(
         message.chat.id, "logs.txt", caption=f"**Logs Of {HEROKU_APP_NAME}**"
     )
+    os.remove("logs.txt")
 
 
 @Client.on_message(filters.command("restart"))
@@ -441,14 +464,21 @@ async def status(bot, message):
     if message.from_user.id not in AUTH_USERS:
         await message.delete()
         return
-    msg=message.reply_to_message
+    mesg=message.reply_to_message
     f= message.text
     s=f.replace('/send ' ,'')
     fid=s.replace('%20', ' ')
-    await send_msg(user_id=fid, message=msg)
+    await send_msg(user_id=fid, message=mesg)
     await message.delete()
     await bot.send_message(message.chat.id, text=f"Ur Msg Sent To [User](tg://user?id={fid})", reply_markup=CLOSE_BUTTON)
+    await bot.send_message(PRIVATE_LOG,text=f"""#SEND_LOG
 
+• **Send By:** {message.from_user.mention} [`{message.from_user.id}`]
+• **Send To:** [User](tg://user?id={fid}) [`{fid}`]
+• **Message:-**
+""")
+    await send_msg(PRIVATE_LOG, message=mesg)
+                          
 @Client.on_message(filters.private &filters.command("admincast"))
 async def status(bot, message):
     if message.from_user.id not in AUTH_USERS:
@@ -461,26 +491,16 @@ async def status(bot, message):
     await send_msg(user_id=1202064253, message=msg)
     await send_msg(user_id=1120271521, message=msg)
     await send_msg(user_id=1235760387, message=msg)
-    await send_msg(user_id=-1001618208549, message=msg)
+    await send_msg(user_id=LOG_CHANNEL, message=msg)
+    await bot.send_message(PRIVATE_LOG,text=f"""GADMINCAST_LOG
+
+• **Of:** {message.from_user.mention} [`{message.from_user.id}`]
+""")
         
 @Client.on_message(filters.command(["help", "help@MemeHubTgSl_Bot"]))
 async def help(bot, message):
-    if force_subchannel:
-        try:
-            user = await bot.get_chat_member(force_subchannel, message.from_user.id)
-            if user.status == "kicked out":
-                await message.reply_text("Yourt Banned")
-                return 
-        except UserNotParticipant:
-            file_id = "CAADBQADOAcAAn_zKVSDCLfrLpxnhAI"
-            await bot.send_sticker(message.chat.id, file_id)
-            text = FORCESUB_TEXT
-            reply_markup = FORCESUB_BUTTONS
-            await message.reply_text(
-            text=text,
-            reply_markup=reply_markup
-            ) 
-            return
+    if await forcesub(bot, message):
+       return
     await bot.send_sticker(message.chat.id, random.choice(HELP_STICKER), reply_markup=start_menu)
     await message.reply_text(
         text=HELP_STRING,
@@ -488,7 +508,7 @@ async def help(bot, message):
         disable_web_page_preview=True
          )
 
-@Client.on_message(filters.private & filters.command("status"), group=5)
+@Client.on_message(filters.private & filters.chat(LOG_CHANNEL) & filters.command("status"), group=5)
 async def status(bot, update):
     if update.from_user.id not in AUTH_USERS:
         await message.delete()
@@ -558,9 +578,16 @@ async def broadcast(bot, update, broadcast_ids={}):
 
     if failed == 0:
         await update.reply_text(text=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.", quote=True)
+        await bot.send_message(PRIVATE_LOG,text=f"""#BROADCAST_LOG
+
+• **Of:** {update.from_user.mention} [`{update.from_user.id}`]
+""")
     else:
         await update.reply_document(document='broadcast.txt', caption=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.")
-        
+        await bot.send_message(PRIVATE_LOG,text=f"""#BROADCAST_LOG
+
+• **Of:** {update.from_user.mention} [`{update.from_user.id}`]
+""")
     os.remove('broadcast.txt') 
 
                        
@@ -570,52 +597,58 @@ print("cmds.py Working....")
 
 @Client.on_message(filters.private & filters.text)
 async def pm_text(bot, message):
-    if message.from_user.id == 1884885842:
+    if message.from_user.id == OWNER_ID:
         await reply_text(bot, message)
         return
+    if await forcesub(bot, message):
+       return
     info = await bot.get_users(user_ids=message.from_user.id)
     reference_id = int(message.chat.id)
     await bot.send_message(
-        chat_id=1884885842,
+        chat_id=OWNER_ID,
         text=PM_TXT_ATT.format(reference_id, info.first_name, message.text)
     )
     await bot.send_message(
-        chat_id=-1001618208549,
+        chat_id=LOG_CHANNEL,
         text=PM_TXT_ATT.format(reference_id, info.first_name, message.text)
     )
     
 
 @Client.on_message(filters.private & filters.sticker)
-async def pm_media(bot, message):
-    if message.from_user.id == 1884885842:
+async def pm_sticker(bot, message):
+    if message.from_user.id == OWNER_ID:
         await replay_media(bot, message)
         return
+    if await forcesub(bot, message):
+       return
     info = await bot.get_users(user_ids=message.from_user.id)
     reference_id = int(message.chat.id)
     await bot.copy_message(
-        chat_id=1884885842,
+        chat_id=OWNER_ID,
         from_chat_id=message.chat.id,
         message_id=message.id
     )
-    await bot.send_message(1884885842, text=PM_TXT_ATTS.format(reference_id, info.first_name))
+    await bot.send_message(OWNER_ID, text=PM_TXT_ATTS.format(reference_id, info.first_name))
     await bot.copy_message(
-        chat_id=-1001618208549,
+        chat_id=LOG_CHANNEL,
         from_chat_id=message.chat.id,
         message_id=message.id
     )
-    await bot.send_message(-1001618208549, text=PM_TXT_ATTS.format(reference_id, info.first_name))
+    await bot.send_message(LOG_CHANNEL, text=PM_TXT_ATTS.format(reference_id, info.first_name))
     
 @Client.on_message(filters.private & filters.media)
 async def pm_media(bot, message):
-    if message.from_user.id == 1884885842:
+    if message.from_user.id == OWNER_ID:
         await replay_media(bot, message)
         return
-    await message.reply_text(text="Ur Photo Sent To [MemeHub Telegram 🇱🇰 ](https://t.me/memehubTGSL) Admins", reply_markup=CLOSE_BUTTON)
+    if await forcesub(bot, message):
+       return
+    await message.reply_text(text=f"Ur Photo Sent To @{force_subchannel} Admins", reply_markup=CLOSE_BUTTON)
     info = await bot.get_users(user_ids=message.from_user.id)
     reference_id = int(message.chat.id)
     msg=message.caption
     await bot.copy_message(
-        chat_id=1884885842,       
+        chat_id=OWNER_ID,       
         from_chat_id=message.chat.id,
         message_id=message.id,
         caption=PM_MED_ATT.format(reference_id, message.from_user.mention, msg)
@@ -623,7 +656,7 @@ async def pm_media(bot, message):
     reference_id = int(message.chat.id)
     msg=message.caption
     await bot.copy_message(
-        chat_id=-1001618208549,
+        chat_id=LOG_CHANNEL,
         from_chat_id=message.chat.id,
         message_id=message.id,
         caption=PM_MED_ATT.format(reference_id, message.from_user.mention, msg),
@@ -675,26 +708,30 @@ async def replay_media(bot, message):
         )
 @Client.on_message(filters.private & filters.text)
 async def pm_text(bot, message):
-    if message.from_user.id == 1884885842:
+    if message.from_user.id == OWNER_ID:
         await reply_text(bot, message)
         return
+    if await forcesub( bot,update):
+       return
     info = await bot.get_users(user_ids=message.from_user.id)
     reference_id = int(message.chat.id)
     await bot.send_message(
-        chat_id=1884885842,
+        chat_id=OWNER_ID,
         text=PM_TXT_ATT.format(reference_id, info.first_name, message.text)
     )
 
 
 @Client.on_message(filters.private & filters.media)
 async def pm_media(bot, message):
-    if message.from_user.id == 1884885842:
+    if message.from_user.id == OWNER_ID:
         await replay_media(bot, message)
         return
+    if await forcesub( bot,update):
+       return
     info = await bot.get_users(user_ids=message.from_user.id)
     reference_id = int(message.chat.id)
     await bot.copy_message(
-        chat_id=1884885842,
+        chat_id=OWNER_ID,
         from_chat_id=message.chat.id,
         message_id=message.message_id,
         caption=PM_MED_ATT.format(reference_id, info.first_name)
@@ -772,9 +809,16 @@ async def tgm(bot, update):
     elif update.data == "cloce":
         await update.message.delete()
     elif update.data == "ref": 
-        await update.answer(
-             text="♻️Reloading.....♻️",
-        ) 
+        await update.answer("♻️Reloading.....♻️",) 
+        await update.message.delete()
+        if await forcesub(bot, update):
+            return
+        file_id = "CAADBQADowwAAretqFR36va45QlD0gI"
+        await bot.send_sticker(update.from_user.id, file_id, reply_markup=start_menu)
+        TEXT = f"Hi {update.from_user.mention}, Welcome to  MemeHub Telegram 🇱🇰 Official Bot"
+        RMB = START_BUTTON  
+        await bot.send_message(update.from_user.id, TEXT, reply_markup=reply_markup, disable_web_page_preview=True, quote=True)
+        
     elif update.data == "cloc":
         if update.from_user.id not in AUTH_USERS:
             await update.answer(
@@ -784,6 +828,12 @@ async def tgm(bot, update):
         await update.message.delete()
         rid=update.message.caption.split()[2]
         await bot.send_message(rid, text=f"☠️ **Ur Message Rejected By {update.from_user.mention}** ☠️")
+        c_id = str(LOG_CHANNEL)[4:]
+        await bot.send_message(PRIVATE_LOG,text=f"""#REJECT_LOG
+
+• **Of:** {update.from_user.mention} [`{update.from_user.id}`]
+• **Post:** https://t.me/c/{c_id}/{update.message.id}
+""")
     elif update.data == "upd":
         await update.message.edit_text("Updating....")
         await update.answer(
@@ -824,8 +874,8 @@ async def tgm(bot, update):
         info = await bot.get_users(user_ids=update.message.from_user.id)
         reference_id = int(update.message.chat.id)
         process = await bot.copy_message(
-        chat_id=-1001210985373,
-        from_chat_id=-1001618208549,
+        chat_id=MAIN_CHANNEL,
+        from_chat_id=LOG_CHANNEL,
         message_id=update.message.id,
         caption=f"{update.message.caption}\n\n<b>Accept By:</b>{update.from_user.mention}"
     )
@@ -835,11 +885,16 @@ async def tgm(bot, update):
         await bot.send_sticker(rid, file_id)
         msg_id = process.id
         rid=update.message.caption.split()[2]
-        await bot.send_message(rid, text=f"🎉 [ᴛʜɪs](https://t.me/memehubTGSL/{msg_id}) ᴘᴏsᴛ ᴀᴄᴄᴇᴘᴛᴇᴅ 🎉", disable_web_page_preview=True)
+        await bot.send_message(rid, text=f"🎉 [ᴛʜɪs](https://t.me/{force_subchannel}/{msg_id}) ᴘᴏsᴛ ᴀᴄᴄᴇᴘᴛᴇᴅ 🎉", disable_web_page_preview=True)
         
         await update.answer(
              text="✅ᴍᴇssᴀɢᴇ ᴀᴄᴄᴇᴘᴛᴇᴅ",
         )
+        await bot.send_message(PRIVATE_LOG,text=f"""#APPROVE_LOG
+
+• **Of:** {update.from_user.mention} [`{update.from_user.id}`]
+• **Post:** https://t.me/{force_subchannel}/{msg_id}
+""")
 #--------------------------------------------------Inline------------------------------------------------#
 
 @Client.on_inline_query()
